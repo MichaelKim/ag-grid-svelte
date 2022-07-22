@@ -1,0 +1,53 @@
+{
+  "name": "ag-grid-svelte",
+  "version": "0.1.0",
+  "description": "A Svelte wrapper for ag-grid",
+  "main": "index.js",
+  "type": "module",
+  "svelte": "src/lib/index.svelte",
+  "devDependencies": {
+    "@playwright/test": "^1.22.2",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "prettier": "^2.6.2",
+    "prettier-plugin-svelte": "^2.7.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.7.1",
+    "svelte-preprocess": "^4.10.6",
+    "svelte2tsx": "^0.5.12",
+    "tslib": "^2.3.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0"
+  },
+  "dependencies": {
+    "ag-grid-community": "^28.0.2"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "package": "svelte-kit package",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync",
+    "test": "playwright test",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint .",
+    "format": "prettier --write --plugin-search-dir=. ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelKim/ag-grid-svelte.git"
+  },
+  "keywords": [],
+  "author": "Michael Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichaelKim/ag-grid-svelte/issues"
+  },
+  "homepage": "https://github.com/MichaelKim/ag-grid-svelte#readme"
+}
