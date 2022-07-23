@@ -1,23 +1,29 @@
 <script lang="ts">
   import {
     ColumnApi,
+    ComponentUtil,
     Grid,
     GridApi,
     type ColDef,
     type ColGroupDef,
-    type GridOptions
+    type GridOptions,
+    type GridParams,
+    type GridReadyEvent,
+    type Module
   } from 'ag-grid-community';
-  import { onMount } from 'svelte';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
+  import { onMount } from 'svelte';
+  import { SvelteFrameworkComponentWrapper } from './SvelteFrameworkComponentWrapper';
 
   type TData = $$Generic;
 
   // Grid options props
   export let rowData: TData[];
   export let columnDefs: (ColDef<TData> | ColGroupDef<TData>)[];
-  // All in one (non-reactive, bind for apis)
+  // Non-reactive
   export let gridOptions: GridOptions<TData> = {};
+  export let modules: Module[] = [];
   // Additional props
   export let className: string = '';
   export let style: string = '';
@@ -27,19 +33,26 @@
   let columnApi: ColumnApi;
 
   onMount(() => {
-    const options: GridOptions<TData> = {
-      ...gridOptions,
-      rowData,
-      columnDefs,
-      onGridReady(event) {
-        ({ api, columnApi } = event);
-        // Once initialized, api and columnApi available in columnApi
-        gridOptions.api = api;
-        gridOptions.columnApi = columnApi;
-        gridOptions.onGridReady?.(event);
-      }
+    const options: GridOptions<TData> = ComponentUtil.copyAttributesToGridOptions(
+      gridOptions,
+      $$props
+    );
+
+    function onGridReady(event: GridReadyEvent<TData>) {
+      // Once initialized, api and columnApi available in columnApi
+      gridOptions.api = event.api;
+      gridOptions.columnApi = event.columnApi;
+      gridOptions.onGridReady?.(event);
+    }
+
+    const gridParams: GridParams = {
+      providedBeanInstances: {
+        frameworkComponentWrapper: new SvelteFrameworkComponentWrapper()
+      },
+      modules
     };
-    const grid = new Grid(eGui, options);
+
+    const grid = new Grid(eGui, { ...options, onGridReady }, gridParams);
 
     return () => {
       grid.destroy();
