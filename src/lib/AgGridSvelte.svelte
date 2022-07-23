@@ -40,8 +40,8 @@
 
     function onGridReady(event: GridReadyEvent<TData>) {
       // Once initialized, api and columnApi available in columnApi
-      gridOptions.api = event.api;
-      gridOptions.columnApi = event.columnApi;
+      gridOptions.api = api = event.api;
+      gridOptions.columnApi = columnApi = event.columnApi;
       gridOptions.onGridReady?.(event);
     }
 
