@@ -1,11 +1,11 @@
 <script lang="ts">
   import {
-    ColumnApi,
     ComponentUtil,
     Grid,
     GridApi,
     type ColDef,
     type ColGroupDef,
+    type ColumnApi,
     type GridOptions,
     type GridParams,
     type GridReadyEvent,
@@ -21,6 +21,8 @@
   // Grid options props
   export let rowData: TData[];
   export let columnDefs: (ColDef<TData> | ColGroupDef<TData>)[];
+  export let api: GridApi<TData> | null = null;
+  export let columnApi: ColumnApi | null = null;
   // Non-reactive
   export let gridOptions: GridOptions<TData> = {};
   export let modules: Module[] = [];
@@ -29,8 +31,6 @@
   export let style: string = '';
 
   let eGui: HTMLDivElement;
-  let api: GridApi<TData>;
-  let columnApi: ColumnApi;
 
   onMount(() => {
     const options: GridOptions<TData> = ComponentUtil.copyAttributesToGridOptions(
@@ -55,6 +55,7 @@
     const grid = new Grid(eGui, { ...options, onGridReady }, gridParams);
 
     return () => {
+      gridOptions.api = gridOptions.columnApi = null;
       grid.destroy();
     };
   });
