@@ -19,8 +19,9 @@
   type TData = $$Generic;
 
   // Grid options props
-  export let rowData: TData[];
   export let columnDefs: (ColDef<TData> | ColGroupDef<TData>)[];
+  export let defaultColumnDef: ColDef<TData> | null = null;
+  export let rowData: TData[];
   export let api: GridApi<TData> | null = null;
   export let columnApi: ColumnApi | null = null;
   // Non-reactive
@@ -60,8 +61,10 @@
     };
   });
 
+  $: mergedColumnDef = columnDefs.map((colDef) => ({ ...defaultColumnDef, ...colDef }));
+
   $: if (api) api.setRowData(rowData);
-  $: if (api) api.setColumnDefs(columnDefs);
+  $: if (api) api.setColumnDefs(mergedColumnDef);
 </script>
 
 <div bind:this={eGui} style:height="100%" {style} class="ag-theme-alpine {className}" />
