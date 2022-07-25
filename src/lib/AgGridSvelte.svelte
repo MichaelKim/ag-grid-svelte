@@ -32,7 +32,24 @@
   export let columnTypes: Options['columnTypes'] = undefined;
   export let maintainColumnOrder: Options['maintainColumnOrder'] = undefined;
   export let suppressFieldDotNotation: Options['suppressFieldDotNotation'] = undefined;
-
+  // Column Headers
+  export let headerHeight: Options['headerHeight'] = undefined;
+  export let groupHeaderHeight: Options['groupHeaderHeight'] = undefined;
+  export let floatingFiltersHeight: Options['floatingFiltersHeight'] = undefined;
+  export let pivotHeaderHeight: Options['pivotHeaderHeight'] = undefined;
+  export let pivotGroupHeaderHeight: Options['pivotGroupHeaderHeight'] = undefined;
+  // Column Moving
+  export let allowDragFromColumnsToolPanel: Options['allowDragFromColumnsToolPanel'] = undefined;
+  export let suppressMovableColumns: Options['suppressMovableColumns'] = undefined;
+  export let suppressColumnMoveAnimation: Options['suppressColumnMoveAnimation'] = undefined;
+  export let suppressDragLeaveHidesColumns: Options['suppressDragLeaveHidesColumns'] = undefined;
+  export let suppressRowGroupHidesColumns: Options['suppressRowGroupHidesColumns'] = undefined;
+  // Column Sizing
+  export let colResizeDefault: Options['colResizeDefault'] = undefined;
+  export let suppressAutoSize: Options['suppressAutoSize'] = undefined;
+  export let autoSizePadding: Options['autoSizePadding'] = undefined;
+  export let skipHeaderOnAutoSize: Options['skipHeaderOnAutoSize'] = undefined;
+  // RowModel: Client-Side
   export let rowData: Options['rowData'] = undefined;
   /* Bound exports */
   export let api: Options['api'] = null;
@@ -72,21 +89,43 @@
     };
   });
 
-  function updateProp<K extends keyof Options>(key: K, prop: Options[K]) {
-    gridOptions[key] = formatProperty.get(key)?.(prop) ?? prop;
-  }
+  const updateProp = <K extends keyof Options>(key: K, prop: Options[K]) => {
+    const setterName = `set${key.charAt(0).toUpperCase()}${key.substring(1)}`;
+    const setters = api as unknown as Record<string, (value: unknown) => void>;
+    const formattedProp = formatProperty.get(key)?.(prop) ?? prop;
+    if (setters[setterName]) setters[setterName](formattedProp);
+    else gridOptions[key] = formattedProp;
+  };
 
   // Columns
-  $: api?.setColumnDefs(columnDefs ?? [], 'gridOptionsChanged');
-  $: api?.setDefaultColDef(defaultColDef ?? {}, 'gridOptionsChanged');
-  $: updateProp('defaultColGroupDef', defaultColGroupDef);
-  $: updateProp('columnTypes', columnTypes);
-  $: updateProp('maintainColumnOrder', maintainColumnOrder);
-  $: updateProp('suppressFieldDotNotation', suppressFieldDotNotation);
-
-  $: api?.setRowData(rowData ?? []);
+  $: if (api) updateProp('columnDefs', columnDefs);
+  $: if (api) updateProp('defaultColDef', defaultColDef);
+  $: if (api) updateProp('defaultColGroupDef', defaultColGroupDef);
+  $: if (api) updateProp('columnTypes', columnTypes);
+  $: if (api) updateProp('maintainColumnOrder', maintainColumnOrder);
+  $: if (api) updateProp('suppressFieldDotNotation', suppressFieldDotNotation);
+  // Column Headers
+  $: if (api) updateProp('headerHeight', headerHeight);
+  $: if (api) updateProp('groupHeaderHeight', groupHeaderHeight);
+  $: if (api) updateProp('floatingFiltersHeight', floatingFiltersHeight);
+  $: if (api) updateProp('pivotHeaderHeight', pivotHeaderHeight);
+  $: if (api) updateProp('pivotGroupHeaderHeight', pivotGroupHeaderHeight);
+  // Column Moving
+  $: if (api) updateProp('allowDragFromColumnsToolPanel', allowDragFromColumnsToolPanel);
+  $: if (api) updateProp('suppressMovableColumns', suppressMovableColumns);
+  $: if (api) updateProp('suppressColumnMoveAnimation', suppressColumnMoveAnimation);
+  $: if (api) updateProp('suppressDragLeaveHidesColumns', suppressDragLeaveHidesColumns);
+  $: if (api) updateProp('suppressRowGroupHidesColumns', suppressRowGroupHidesColumns);
+  // Column Sizing
+  $: if (api) updateProp('colResizeDefault', colResizeDefault);
+  $: if (api) updateProp('suppressAutoSize', suppressAutoSize);
+  $: if (api) updateProp('autoSizePadding', autoSizePadding);
+  $: if (api) updateProp('skipHeaderOnAutoSize', skipHeaderOnAutoSize);
+  // RowModel: Client-Side
+  $: if (api) updateProp('rowData', rowData);
 
   // TODO: events
+  // TODO: custom row model
   // TODO: theme
 </script>
 
