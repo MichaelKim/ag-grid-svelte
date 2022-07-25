@@ -1,11 +1,14 @@
+<script lang="ts" context="module">
+  const formatProperty: { [prop: string]: (value: unknown) => unknown } = {};
+  for (const prop of ComponentUtil.BOOLEAN_PROPERTIES)
+    formatProperty[prop] = ComponentUtil.toBoolean;
+  for (const prop of ComponentUtil.NUMBER_PROPERTIES) formatProperty[prop] = ComponentUtil.toNumber;
+</script>
+
 <script lang="ts">
   import {
     ComponentUtil,
     Grid,
-    GridApi,
-    type ColDef,
-    type ColGroupDef,
-    type ColumnApi,
     type GridOptions,
     type GridParams,
     type GridReadyEvent,
@@ -18,33 +21,40 @@
 
   type TData = $$Generic;
 
-  // Grid options props
-  export let columnDefs: (ColDef<TData> | ColGroupDef<TData>)[];
-  export let defaultColumnDef: ColDef<TData> | null = null;
-  export let rowData: TData[];
-  export let api: GridApi<TData> | null = null;
-  export let columnApi: ColumnApi | null = null;
-  // Non-reactive
+  /* Grid options props */
+  // Columns
+  export let columnDefs: NonNullable<GridOptions<TData>['columnDefs']> = [];
+  export let defaultColDef: NonNullable<GridOptions<TData>['defaultColDef']> = {};
+  export let defaultColGroupDef: NonNullable<GridOptions<TData>['defaultColGroupDef']> = {};
+  export let columnTypes: NonNullable<GridOptions<TData>['columnTypes']> = {};
+  export let maintainColumnOrder: NonNullable<GridOptions<TData>['maintainColumnOrder']> = false;
+  export let suppressFieldDotNotation: NonNullable<GridOptions<TData>['suppressFieldDotNotation']> =
+    false;
+
+  export let rowData: NonNullable<GridOptions<TData>['rowData']> = [];
+  /* Bound exports */
+  export let api: GridOptions<TData>['api'] = null;
+  export let columnApi: GridOptions<TData>['columnApi'] = null;
+  /* Non-reactive */
   export let gridOptions: GridOptions<TData> = {};
   export let modules: Module[] = [];
-  // Additional props
+
+  /* Svelte-specific additional props */
   export let className: string = '';
   export let style: string = '';
 
   let eGui: HTMLDivElement;
 
   onMount(() => {
-    const options: GridOptions<TData> = ComponentUtil.copyAttributesToGridOptions(
-      gridOptions,
-      $$props
-    );
-
-    function onGridReady(event: GridReadyEvent<TData>) {
-      // Once initialized, api and columnApi available in columnApi
-      gridOptions.api = api = event.api;
-      gridOptions.columnApi = columnApi = event.columnApi;
-      gridOptions.onGridReady?.(event);
-    }
+    const _onGridReady = gridOptions.onGridReady;
+    gridOptions = ComponentUtil.copyAttributesToGridOptions(gridOptions, {
+      $$props,
+      onGridReady(event: GridReadyEvent<TData>) {
+        api = event.api;
+        columnApi = event.columnApi;
+        _onGridReady?.(event);
+      }
+    });
 
     const gridParams: GridParams = {
       providedBeanInstances: {
@@ -53,18 +63,29 @@
       modules
     };
 
-    const grid = new Grid(eGui, { ...options, onGridReady }, gridParams);
+    const grid = new Grid(eGui, gridOptions, gridParams);
 
     return () => {
-      gridOptions.api = gridOptions.columnApi = null;
       grid.destroy();
     };
   });
 
-  $: mergedColumnDef = columnDefs.map((colDef) => ({ ...defaultColumnDef, ...colDef }));
+  $: api?.setRowData(rowData);
 
-  $: if (api) api.setRowData(rowData);
-  $: if (api) api.setColumnDefs(mergedColumnDef);
+  function updateProp(options: GridOptions<TData>) {
+    const keys = Object.keys(options) as (keyof GridOptions<TData>)[];
+    for (const key of keys) gridOptions[key] = formatProperty[key]?.(options[key]) ?? options[key];
+  }
+
+  $: api?.setColumnDefs(columnDefs, 'gridOptionsChanged');
+  $: api?.setDefaultColDef(defaultColDef, 'gridOptionsChanged');
+  $: updateProp({ defaultColGroupDef });
+  $: updateProp({ columnTypes });
+  $: updateProp({ maintainColumnOrder });
+  $: updateProp({ suppressFieldDotNotation });
+
+  // TODO: events
+  // TODO: theme
 </script>
 
 <div bind:this={eGui} style:height="100%" {style} class="ag-theme-alpine {className}" />
