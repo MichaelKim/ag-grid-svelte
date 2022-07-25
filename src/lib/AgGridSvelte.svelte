@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
-  const formatProperty: { [prop: string]: (value: unknown) => unknown } = {};
-  for (const prop of ComponentUtil.BOOLEAN_PROPERTIES)
-    formatProperty[prop] = ComponentUtil.toBoolean;
-  for (const prop of ComponentUtil.NUMBER_PROPERTIES) formatProperty[prop] = ComponentUtil.toNumber;
+  const formatProperty = new Map<string, (value: unknown) => unknown>([
+    ...ComponentUtil.BOOLEAN_PROPERTIES.map((prop) => [prop, ComponentUtil.toBoolean] as const),
+    ...ComponentUtil.NUMBER_PROPERTIES.map((prop) => [prop, ComponentUtil.toNumber] as const)
+  ]);
 </script>
 
 <script lang="ts">
@@ -20,23 +20,25 @@
   import { SvelteFrameworkComponentWrapper } from './SvelteFrameworkComponentWrapper';
 
   type TData = $$Generic;
+  type Options = GridOptions<TData>;
 
   /* Grid options props */
+  // Accessories (enterprise)
+  // Clipboard (enterprise)
   // Columns
-  export let columnDefs: NonNullable<GridOptions<TData>['columnDefs']> = [];
-  export let defaultColDef: NonNullable<GridOptions<TData>['defaultColDef']> = {};
-  export let defaultColGroupDef: NonNullable<GridOptions<TData>['defaultColGroupDef']> = {};
-  export let columnTypes: NonNullable<GridOptions<TData>['columnTypes']> = {};
-  export let maintainColumnOrder: NonNullable<GridOptions<TData>['maintainColumnOrder']> = false;
-  export let suppressFieldDotNotation: NonNullable<GridOptions<TData>['suppressFieldDotNotation']> =
-    false;
+  export let columnDefs: Options['columnDefs'] = undefined;
+  export let defaultColDef: Options['defaultColDef'] = undefined;
+  export let defaultColGroupDef: Options['defaultColGroupDef'] = undefined;
+  export let columnTypes: Options['columnTypes'] = undefined;
+  export let maintainColumnOrder: Options['maintainColumnOrder'] = undefined;
+  export let suppressFieldDotNotation: Options['suppressFieldDotNotation'] = undefined;
 
-  export let rowData: NonNullable<GridOptions<TData>['rowData']> = [];
+  export let rowData: Options['rowData'] = undefined;
   /* Bound exports */
-  export let api: GridOptions<TData>['api'] = null;
-  export let columnApi: GridOptions<TData>['columnApi'] = null;
+  export let api: Options['api'] = null;
+  export let columnApi: Options['columnApi'] = null;
   /* Non-reactive */
-  export let gridOptions: GridOptions<TData> = {};
+  export let gridOptions: Options = {};
   export let modules: Module[] = [];
 
   /* Svelte-specific additional props */
@@ -70,19 +72,19 @@
     };
   });
 
-  $: api?.setRowData(rowData);
-
-  function updateProp(options: GridOptions<TData>) {
-    const keys = Object.keys(options) as (keyof GridOptions<TData>)[];
-    for (const key of keys) gridOptions[key] = formatProperty[key]?.(options[key]) ?? options[key];
+  function updateProp<K extends keyof Options>(key: K, prop: Options[K]) {
+    gridOptions[key] = formatProperty.get(key)?.(prop) ?? prop;
   }
 
-  $: api?.setColumnDefs(columnDefs, 'gridOptionsChanged');
-  $: api?.setDefaultColDef(defaultColDef, 'gridOptionsChanged');
-  $: updateProp({ defaultColGroupDef });
-  $: updateProp({ columnTypes });
-  $: updateProp({ maintainColumnOrder });
-  $: updateProp({ suppressFieldDotNotation });
+  // Columns
+  $: api?.setColumnDefs(columnDefs ?? [], 'gridOptionsChanged');
+  $: api?.setDefaultColDef(defaultColDef ?? {}, 'gridOptionsChanged');
+  $: updateProp('defaultColGroupDef', defaultColGroupDef);
+  $: updateProp('columnTypes', columnTypes);
+  $: updateProp('maintainColumnOrder', maintainColumnOrder);
+  $: updateProp('suppressFieldDotNotation', suppressFieldDotNotation);
+
+  $: api?.setRowData(rowData ?? []);
 
   // TODO: events
   // TODO: theme
