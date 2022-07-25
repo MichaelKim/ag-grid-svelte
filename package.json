@@ -24,8 +24,8 @@
     "typescript": "^4.7.4",
     "vite": "^3.0.0"
   },
-  "dependencies": {
-    "ag-grid-community": "^28.0.2"
+  "peerDependencies": {
+    "ag-grid-community": "^28"
   },
   "scripts": {
     "dev": "vite dev",
