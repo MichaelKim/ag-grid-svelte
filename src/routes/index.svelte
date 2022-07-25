@@ -1,5 +1,8 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
+  import 'ag-grid-community/styles/ag-grid.css';
+  import 'ag-grid-community/styles/ag-theme-alpine.css';
+  import Layout from './Layout.svelte';
 
   let rowData = [
     { make: 'Toyota', model: 'Celica', price: 35000 },
@@ -18,20 +21,9 @@
   }
 </script>
 
-<div class="app">
-  <h1>ag-grid-svelte</h1>
+<Layout title="Getting Started">
   <button on:click={addRow}>Add Row</button>
-  <AgGridSvelte {rowData} {columnDefs} />
-</div>
-
-<style>
-  :global(html, body) {
-    margin: 0;
-    height: 100%;
-  }
-  .app {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-</style>
+  <div style:height="500px" class="ag-theme-alpine">
+    <AgGridSvelte {rowData} {columnDefs} />
+  </div>
+</Layout>

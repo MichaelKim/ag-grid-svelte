@@ -14,8 +14,6 @@
     type GridReadyEvent,
     type Module
   } from 'ag-grid-community';
-  import 'ag-grid-community/styles/ag-grid.css';
-  import 'ag-grid-community/styles/ag-theme-alpine.css';
   import { onMount } from 'svelte';
   import { SvelteFrameworkComponentWrapper } from './SvelteFrameworkComponentWrapper';
 
@@ -51,9 +49,11 @@
   export let skipHeaderOnAutoSize: Options['skipHeaderOnAutoSize'] = undefined;
   // RowModel: Client-Side
   export let rowData: Options['rowData'] = undefined;
+
   /* Bound exports */
   export let api: Options['api'] = null;
   export let columnApi: Options['columnApi'] = null;
+
   /* Non-reactive */
   export let gridOptions: Options = {};
   export let modules: Module[] = [];
@@ -126,7 +126,6 @@
 
   // TODO: events
   // TODO: custom row model
-  // TODO: theme
 </script>
 
-<div bind:this={eGui} style:height="100%" {style} class="ag-theme-alpine {className}" />
+<div bind:this={eGui} style:height="100%" {style} class={className} />
