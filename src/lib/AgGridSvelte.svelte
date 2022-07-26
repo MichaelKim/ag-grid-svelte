@@ -94,7 +94,7 @@
     const setters = api as unknown as Record<string, (value: unknown) => void>;
     const formattedProp = formatProperty.get(key)?.(prop) ?? prop;
     if (setters[setterName]) setters[setterName](formattedProp);
-    else gridOptions[key] = formattedProp;
+    gridOptions[key] = formattedProp;
   };
 
   // Columns

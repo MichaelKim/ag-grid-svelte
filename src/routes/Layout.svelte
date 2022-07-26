@@ -30,7 +30,7 @@
     height: 100%;
   }
   nav {
-    width: 300px;
+    width: 200px;
     overflow: auto;
     border-right: 1px solid gray;
     padding: 4px;
