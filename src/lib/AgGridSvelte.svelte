@@ -47,6 +47,26 @@
   export let suppressAutoSize: Options['suppressAutoSize'] = undefined;
   export let autoSizePadding: Options['autoSizePadding'] = undefined;
   export let skipHeaderOnAutoSize: Options['skipHeaderOnAutoSize'] = undefined;
+  // Components (TODO)
+  // Editing
+  export let editType: Options['editType'] = undefined;
+  export let singleClickEdit: Options['singleClickEdit'] = undefined;
+  export let suppressClickEdit: Options['suppressClickEdit'] = undefined;
+  export let stopEditingWhenCellsLoseFocus: Options['stopEditingWhenCellsLoseFocus'] = undefined;
+  export let enterMovesDown: Options['enterMovesDown'] = undefined;
+  export let enterMovesDownAfterEdit: Options['enterMovesDownAfterEdit'] = undefined;
+  export let undoRedoCellEditing: Options['undoRedoCellEditing'] = undefined;
+  export let undoRedoCellEditingLimit: Options['undoRedoCellEditingLimit'] = undefined;
+  export let readOnlyEdit: Options['readOnlyEdit'] = undefined;
+  // Export (TODO)
+  // Filtering
+  export let quickFilterText: Options['quickFilterText'] = undefined;
+  export let cacheQuickFilter: Options['cacheQuickFilter'] = undefined;
+  export let isExternalFilterPresent: Options['isExternalFilterPresent'] = undefined;
+  export let doesExternalFilterPass: Options['doesExternalFilterPass'] = undefined;
+  export let excludeChildrenWhenTreeDataFiltering: Options['excludeChildrenWhenTreeDataFiltering'] =
+    undefined;
+
   // RowModel: Client-Side
   export let rowData: Options['rowData'] = undefined;
 
@@ -121,6 +141,24 @@
   $: if (api) updateProp('suppressAutoSize', suppressAutoSize);
   $: if (api) updateProp('autoSizePadding', autoSizePadding);
   $: if (api) updateProp('skipHeaderOnAutoSize', skipHeaderOnAutoSize);
+  // Editing
+  $: if (api) updateProp('editType', editType);
+  $: if (api) updateProp('singleClickEdit', singleClickEdit);
+  $: if (api) updateProp('suppressClickEdit', suppressClickEdit);
+  $: if (api) updateProp('stopEditingWhenCellsLoseFocus', stopEditingWhenCellsLoseFocus);
+  $: if (api) updateProp('enterMovesDown', enterMovesDown);
+  $: if (api) updateProp('enterMovesDownAfterEdit', enterMovesDownAfterEdit);
+  $: if (api) updateProp('undoRedoCellEditing', undoRedoCellEditing);
+  $: if (api) updateProp('undoRedoCellEditingLimit', undoRedoCellEditingLimit);
+  $: if (api) updateProp('readOnlyEdit', readOnlyEdit);
+  // Filtering
+  $: if (api) updateProp('quickFilterText', quickFilterText);
+  $: if (api) updateProp('cacheQuickFilter', cacheQuickFilter);
+  $: if (api) updateProp('isExternalFilterPresent', isExternalFilterPresent);
+  $: if (api) updateProp('doesExternalFilterPass', doesExternalFilterPass);
+  $: if (api)
+    updateProp('excludeChildrenWhenTreeDataFiltering', excludeChildrenWhenTreeDataFiltering);
+
   // RowModel: Client-Side
   $: if (api) updateProp('rowData', rowData);
 
