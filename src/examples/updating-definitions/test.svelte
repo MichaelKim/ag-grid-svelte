@@ -1,10 +1,9 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
-  import Layout from '../Layout.svelte';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import { onMount } from 'svelte';
-  import type { GridApi } from 'ag-grid-community';
+  import Layout from '../../Layout.svelte';
 
   const columnDefs = [
     { field: 'athlete' },

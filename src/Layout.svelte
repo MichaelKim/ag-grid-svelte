@@ -1,12 +1,13 @@
 <script lang="ts">
-  export let title = '';
+  export let title: string = '';
 </script>
 
 <div class="app">
   <nav>
+    <h4><a href="/">Svelte AG Grid</a></h4>
     <ul>
-      <li><a href="/">Svelte Ag Grid</a></li>
-      <li><a href="/columns">Columns</a></li>
+      <li><a href="/columns/definitions">Columns</a></li>
+      <li><a href="/columns/groups">Groups</a></li>
     </ul>
   </nav>
   <div class="main">
@@ -33,11 +34,16 @@
     width: 200px;
     overflow: auto;
     border-right: 1px solid gray;
-    padding: 4px;
+    padding: 16px 4px;
     font-size: larger;
+  }
+  h4 {
+    text-align: center;
+    margin: 0;
   }
   .main {
     flex: 1;
     padding: 0 30px;
+    overflow: auto;
   }
 </style>

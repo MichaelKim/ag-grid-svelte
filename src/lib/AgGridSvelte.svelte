@@ -67,6 +67,9 @@
   export let excludeChildrenWhenTreeDataFiltering: Options['excludeChildrenWhenTreeDataFiltering'] =
     undefined;
 
+  // Events
+  export let onGridReady: Options['onGridReady'] = undefined;
+
   // RowModel: Client-Side
   export let rowData: Options['rowData'] = undefined;
 
@@ -91,6 +94,7 @@
       onGridReady(event: GridReadyEvent<TData>) {
         api = event.api;
         columnApi = event.columnApi;
+        onGridReady?.(event);
         _onGridReady?.(event);
       }
     });
@@ -118,12 +122,12 @@
   };
 
   // Columns
-  $: if (api) updateProp('columnDefs', columnDefs);
   $: if (api) updateProp('defaultColDef', defaultColDef);
   $: if (api) updateProp('defaultColGroupDef', defaultColGroupDef);
   $: if (api) updateProp('columnTypes', columnTypes);
   $: if (api) updateProp('maintainColumnOrder', maintainColumnOrder);
   $: if (api) updateProp('suppressFieldDotNotation', suppressFieldDotNotation);
+  $: if (api) updateProp('columnDefs', columnDefs); // Update columnDefs last
   // Column Headers
   $: if (api) updateProp('headerHeight', headerHeight);
   $: if (api) updateProp('groupHeaderHeight', groupHeaderHeight);

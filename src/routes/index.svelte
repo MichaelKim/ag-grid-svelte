@@ -2,7 +2,7 @@
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
-  import Layout from './Layout.svelte';
+  import Layout from '../Layout.svelte';
 
   let rowData = [
     { make: 'Toyota', model: 'Celica', price: 35000 },

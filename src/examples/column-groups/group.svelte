@@ -1,6 +1,6 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
-  import Layout from '../Layout.svelte';
+  import Layout from '../../Layout.svelte';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import { onMount } from 'svelte';
@@ -54,14 +54,12 @@
   const toggleMaintain = () => (maintainColumnOrder = !maintainColumnOrder);
 </script>
 
-<Layout title="Columns">
-  <div>
-    <button on:click={setColsA}>Column Set A</button>
-    <button on:click={setColsB}>Column Set B</button>
-    <button on:click={clearColDefs}>Clear</button>
-    <button on:click={toggleMaintain}>{maintainColumnOrder ? 'Disable' : 'Enable'} Maintain</button>
-  </div>
-  <div style:height="500px" class="ag-theme-alpine">
-    <AgGridSvelte {rowData} {columnDefs} {defaultColDef} {maintainColumnOrder} />
-  </div>
-</Layout>
+<div>
+  <button on:click={setColsA}>Column Set A</button>
+  <button on:click={setColsB}>Column Set B</button>
+  <button on:click={clearColDefs}>Clear</button>
+  <button on:click={toggleMaintain}>{maintainColumnOrder ? 'Disable' : 'Enable'} Maintain</button>
+</div>
+<div style:height="500px" class="ag-theme-alpine">
+  <AgGridSvelte {rowData} {columnDefs} {defaultColDef} {maintainColumnOrder} />
+</div>
