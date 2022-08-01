@@ -3,6 +3,7 @@
   import type { ColDef, ColGroupDef } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
+  import type { IOlympicData } from '../types';
 
   const columnDefs: (ColDef | ColGroupDef)[] = [
     { field: 'athlete' },
@@ -64,11 +65,11 @@
     }
   };
 
-  let rowData: unknown[] = [];
+  let rowData: IOlympicData[] = [];
   function onGridReady() {
     fetch('/olympic-winners.json')
       .then((resp) => resp.json())
-      .then((data: unknown[]) => (rowData = data));
+      .then((data) => (rowData = data));
   }
 </script>
 

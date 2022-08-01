@@ -1,9 +1,8 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
-  import Layout from '../../Layout.svelte';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
-  import { onMount } from 'svelte';
+  import type { IOlympicData } from '../types';
 
   const colDefsMedalsIncluded = [
     { field: 'athlete', headerName: 'A Athlete' },
@@ -40,12 +39,12 @@
 
   let columnDefs = colDefsMedalsIncluded;
 
-  let rowData: unknown[] = [];
-  onMount(() => {
+  let rowData: IOlympicData[] = [];
+  function onGridReady() {
     fetch('/olympic-winners.json')
       .then((resp) => resp.json())
       .then((data) => (rowData = data));
-  });
+  }
 
   let maintainColumnOrder = true;
   const setColsA = () => (columnDefs = colDefsMedalsIncluded);
@@ -61,5 +60,5 @@
   <button on:click={toggleMaintain}>{maintainColumnOrder ? 'Disable' : 'Enable'} Maintain</button>
 </div>
 <div style:height="500px" class="ag-theme-alpine">
-  <AgGridSvelte {rowData} {columnDefs} {defaultColDef} {maintainColumnOrder} />
+  <AgGridSvelte {rowData} {columnDefs} {defaultColDef} {maintainColumnOrder} {onGridReady} />
 </div>

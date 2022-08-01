@@ -6,8 +6,9 @@
   <nav>
     <h4><a href="/">Svelte AG Grid</a></h4>
     <ul>
-      <li><a href="/columns/definitions">Columns</a></li>
-      <li><a href="/columns/groups">Groups</a></li>
+      <li><p><a href="/columns/definitions">Columns Definitions</a></p></li>
+      <li><p><a href="/columns/updating">Updating Definitions</a></p></li>
+      <li><p><a href="/columns/groups">Column Groups</a></p></li>
     </ul>
   </nav>
   <div class="main">
@@ -36,6 +37,10 @@
     border-right: 1px solid gray;
     padding: 16px 4px;
     font-size: larger;
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
   }
   h4 {
     text-align: center;
