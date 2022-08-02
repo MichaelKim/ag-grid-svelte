@@ -15,7 +15,10 @@
     type Module
   } from 'ag-grid-community';
   import { onMount } from 'svelte';
-  import { SvelteFrameworkComponentWrapper } from './SvelteFrameworkComponentWrapper';
+  import {
+    SvelteFrameworkComponentWrapper,
+    SvelteFrameworkOverrides
+  } from './SvelteFrameworkComponentWrapper';
 
   type TData = $$Generic;
   type Options = GridOptions<TData>;
@@ -103,6 +106,7 @@
       providedBeanInstances: {
         frameworkComponentWrapper: new SvelteFrameworkComponentWrapper()
       },
+      frameworkOverrides: new SvelteFrameworkOverrides(),
       modules
     };
 
