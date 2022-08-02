@@ -1,6 +1,7 @@
 <script lang="ts">
   import AddRemove from '../../examples/updating-definitions/add-remove.svelte';
   import ChangingState from '../../examples/updating-definitions/changing-state.svelte';
+  import ColumnGroups from '../../examples/updating-definitions/column-groups.svelte';
   import MaintainOrder from '../../examples/updating-definitions/maintain-order.svelte';
   import MatchingCols from '../../examples/updating-definitions/matching-cols.svelte';
   import RefreshHeaders from '../../examples/updating-definitions/refresh-headers.svelte';
@@ -17,4 +18,5 @@
   <MatchingCols />
   <MaintainOrder />
   <RefreshHeaders />
+  <ColumnGroups />
 </Layout>

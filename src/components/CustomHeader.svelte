@@ -15,6 +15,7 @@
     <div
       bind:this={menuButtonRef}
       class="ag-icon ag-icon-menu"
+      style:cursor="pointer"
       on:click={() => showColumnMenu(menuButtonRef)}
     />
   {/if}
