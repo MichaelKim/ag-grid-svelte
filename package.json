@@ -1,7 +1,7 @@
 {
   "name": "ag-grid-svelte",
   "version": "0.1.0",
-  "description": "A Svelte wrapper for ag-grid",
+  "description": "A Svelte wrapper for AG Grid",
   "main": "index.js",
   "type": "module",
   "svelte": "src/lib/index.svelte",
@@ -16,6 +16,7 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "prettier": "^2.6.2",
     "prettier-plugin-svelte": "^2.7.0",
+    "sass": "^1.54.0",
     "svelte": "^3.44.0",
     "svelte-check": "^2.7.1",
     "svelte-preprocess": "^4.10.6",
