@@ -1,4 +1,14 @@
-<header>
+<script lang="ts">
+  let visible = true;
+  let lastTop = 0;
+  function onScroll() {
+    const currTop = document.documentElement.scrollTop;
+    if (lastTop) visible = lastTop > currTop;
+    lastTop = currTop;
+  }
+</script>
+
+<header style:transform="translateY({visible ? '0' : '-100%'}">
   <div class="container">
     <div class="left">
       <h1><a href="/">Svelte AG Grid</a></h1>
@@ -15,14 +25,16 @@
   </div>
 </header>
 
+<svelte:window on:scroll|passive={onScroll} />
+
 <style>
   header {
-    width: 100%;
     border-bottom: 2px solid lightgrey;
     background-color: #fcfcff;
     position: sticky;
     top: 0;
     z-index: 10;
+    transition: transform 0.15s ease-in-out;
   }
   .container {
     max-width: 1440px;

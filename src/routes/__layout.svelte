@@ -3,22 +3,22 @@
 </script>
 
 <Header />
-<div>
+<main>
   <slot />
-</div>
+</main>
 
 <style lang="scss">
   :global(*) {
     margin: 0;
   }
   :global(html, body) {
-    height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     background-color: #fcfcff;
   }
   :global(p) {
     font-size: 16px;
+    line-height: 20px;
   }
   :global(a) {
     text-decoration: none;
@@ -26,7 +26,7 @@
       text-decoration: underline;
     }
   }
-  div {
+  main {
     display: flex;
     max-width: 1440px;
     margin: 0 auto;

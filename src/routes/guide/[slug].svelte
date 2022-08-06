@@ -104,7 +104,6 @@
     display: flex;
     flex: 1;
     padding: 0 32px;
-    overflow: auto;
   }
   .inner {
     flex: 1;
