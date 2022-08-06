@@ -3,7 +3,7 @@
   import type { ColDef } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
-  import CustomHeader from '../../components/CustomHeader.svelte';
+  import CustomHeader from '../components/CustomHeader.svelte';
   import type { IOlympicData } from '../types';
 
   let rowData: IOlympicData[] = [];
