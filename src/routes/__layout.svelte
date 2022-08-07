@@ -8,17 +8,16 @@
 </main>
 
 <style lang="scss">
-  :global(*) {
+  :global(body) {
+    --main-width: 1440px;
+    --header-height: 4rem;
+    --bg-color: #fcfcff;
+
     margin: 0;
-  }
-  :global(html, body) {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    background-color: #fcfcff;
-  }
-  :global(p) {
+    background-color: var(--bg-color);
     font-size: 16px;
-    line-height: 20px;
   }
   :global(a) {
     text-decoration: none;
@@ -28,8 +27,7 @@
   }
   main {
     display: flex;
-    max-width: 1440px;
+    max-width: var(--main-width);
     margin: 0 auto;
-    padding: 8px;
   }
 </style>

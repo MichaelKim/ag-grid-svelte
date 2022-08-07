@@ -12,8 +12,9 @@
 <style>
   aside {
     width: 200px;
-    padding-top: 12px;
+    height: calc(100vh - var(--header-height));
     overflow: auto;
-    font-size: larger;
+    position: sticky;
+    top: var(--header-height);
   }
 </style>

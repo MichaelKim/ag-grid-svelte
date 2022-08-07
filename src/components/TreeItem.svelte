@@ -35,6 +35,7 @@
     cursor: pointer;
   }
   p {
+    margin: 0;
     color: #454545;
     padding: 4px 0 4px 4px;
     border-radius: 4px;

@@ -10,7 +10,7 @@
 
 <header style:transform="translateY({visible ? '0' : '-100%'}">
   <div class="container">
-    <div class="left">
+    <div>
       <h1><a href="/">Svelte AG Grid</a></h1>
     </div>
     <div>
@@ -29,21 +29,25 @@
 
 <style>
   header {
+    height: var(--header-height);
     border-bottom: 2px solid lightgrey;
-    background-color: #fcfcff;
+    background-color: var(--bg-color);
     position: sticky;
     top: 0;
     z-index: 10;
     transition: transform 0.15s ease-in-out;
+    box-sizing: border-box;
   }
   .container {
-    max-width: 1440px;
+    max-width: var(--main-width);
+    height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: 8px 16px;
+    padding: 0 16px;
+    justify-content: space-between;
   }
-  .left {
-    flex: 1;
+  h1 {
+    margin: 0;
   }
 </style>

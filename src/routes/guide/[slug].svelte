@@ -60,10 +60,11 @@
 
 <script lang="ts">
   import { browser } from '$app/env';
-  import { onMount, type SvelteComponent } from 'svelte';
+  import { afterUpdate, type SvelteComponent } from 'svelte';
   import Navigation from '../../components/Navigation.svelte';
   import Sidebar from '../../components/Sidebar.svelte';
   import type { Nav } from '../../components/TreeView.svelte';
+  import { scrollToHash } from '../../util';
   import type { Load } from './__types/[slug]';
 
   export let title: string;
@@ -71,13 +72,15 @@
 
   let headings: string[] = [];
   let section: HTMLElement;
-  onMount(() => {
+  afterUpdate(() => {
     headings = [];
     section.querySelectorAll('h2').forEach((h2) => {
       const text = h2.textContent!;
       headings.push(text);
       h2.id = text;
     });
+
+    scrollToHash();
   });
 </script>
 
