@@ -69,16 +69,16 @@
   export let doesExternalFilterPass: Options['doesExternalFilterPass'] = undefined;
   export let excludeChildrenWhenTreeDataFiltering: Options['excludeChildrenWhenTreeDataFiltering'] =
     undefined;
-
-  // Events
-  export let onGridReady: Options['onGridReady'] = undefined;
-
+  // Miscellaneous
+  export let api: Options['api'] = undefined;
+  export let columnApi: Options['columnApi'] = undefined;
+  // RowModel
+  export let rowModelType: Options['rowModelType'] = undefined;
   // RowModel: Client-Side
   export let rowData: Options['rowData'] = undefined;
 
-  /* Bound exports */
-  export let api: Options['api'] = null;
-  export let columnApi: Options['columnApi'] = null;
+  // Events
+  export let onGridReady: Options['onGridReady'] = undefined;
 
   /* Non-reactive */
   export let gridOptions: Options = {};
@@ -117,58 +117,65 @@
     };
   });
 
-  const updateProp = <K extends keyof Options>(key: K, prop: Options[K]) => {
+  const _update = <K extends keyof Options>(
+    setters: Record<string, (value: unknown) => void>,
+    key: K,
+    prop: Options[K]
+  ) => {
     const setterName = `set${key.charAt(0).toUpperCase()}${key.substring(1)}`;
-    const setters = api as unknown as Record<string, (value: unknown) => void>;
     const formattedProp = formatProperty.get(key)?.(prop) ?? prop;
     if (setters[setterName]) setters[setterName](formattedProp);
     gridOptions[key] = formattedProp;
   };
 
-  // Columns
-  $: if (api) updateProp('defaultColDef', defaultColDef);
-  $: if (api) updateProp('defaultColGroupDef', defaultColGroupDef);
-  $: if (api) updateProp('columnTypes', columnTypes);
-  $: if (api) updateProp('maintainColumnOrder', maintainColumnOrder);
-  $: if (api) updateProp('suppressFieldDotNotation', suppressFieldDotNotation);
-  $: if (api) updateProp('columnDefs', columnDefs); // Update columnDefs last
-  // Column Headers
-  $: if (api) updateProp('headerHeight', headerHeight);
-  $: if (api) updateProp('groupHeaderHeight', groupHeaderHeight);
-  $: if (api) updateProp('floatingFiltersHeight', floatingFiltersHeight);
-  $: if (api) updateProp('pivotHeaderHeight', pivotHeaderHeight);
-  $: if (api) updateProp('pivotGroupHeaderHeight', pivotGroupHeaderHeight);
-  // Column Moving
-  $: if (api) updateProp('allowDragFromColumnsToolPanel', allowDragFromColumnsToolPanel);
-  $: if (api) updateProp('suppressMovableColumns', suppressMovableColumns);
-  $: if (api) updateProp('suppressColumnMoveAnimation', suppressColumnMoveAnimation);
-  $: if (api) updateProp('suppressDragLeaveHidesColumns', suppressDragLeaveHidesColumns);
-  $: if (api) updateProp('suppressRowGroupHidesColumns', suppressRowGroupHidesColumns);
-  // Column Sizing
-  $: if (api) updateProp('colResizeDefault', colResizeDefault);
-  $: if (api) updateProp('suppressAutoSize', suppressAutoSize);
-  $: if (api) updateProp('autoSizePadding', autoSizePadding);
-  $: if (api) updateProp('skipHeaderOnAutoSize', skipHeaderOnAutoSize);
-  // Editing
-  $: if (api) updateProp('editType', editType);
-  $: if (api) updateProp('singleClickEdit', singleClickEdit);
-  $: if (api) updateProp('suppressClickEdit', suppressClickEdit);
-  $: if (api) updateProp('stopEditingWhenCellsLoseFocus', stopEditingWhenCellsLoseFocus);
-  $: if (api) updateProp('enterMovesDown', enterMovesDown);
-  $: if (api) updateProp('enterMovesDownAfterEdit', enterMovesDownAfterEdit);
-  $: if (api) updateProp('undoRedoCellEditing', undoRedoCellEditing);
-  $: if (api) updateProp('undoRedoCellEditingLimit', undoRedoCellEditingLimit);
-  $: if (api) updateProp('readOnlyEdit', readOnlyEdit);
-  // Filtering
-  $: if (api) updateProp('quickFilterText', quickFilterText);
-  $: if (api) updateProp('cacheQuickFilter', cacheQuickFilter);
-  $: if (api) updateProp('isExternalFilterPresent', isExternalFilterPresent);
-  $: if (api) updateProp('doesExternalFilterPass', doesExternalFilterPass);
-  $: if (api)
-    updateProp('excludeChildrenWhenTreeDataFiltering', excludeChildrenWhenTreeDataFiltering);
+  $: updateProp = <K extends keyof Options>(key: K, prop: Options[K]) => {
+    // Pull into separate function so this doesn't react on gridOptions
+    if (api) _update(api as any, key, prop);
+  };
 
+  // Columns
+  $: updateProp('defaultColDef', defaultColDef);
+  $: updateProp('defaultColGroupDef', defaultColGroupDef);
+  $: updateProp('columnTypes', columnTypes);
+  $: updateProp('maintainColumnOrder', maintainColumnOrder);
+  $: updateProp('suppressFieldDotNotation', suppressFieldDotNotation);
+  $: updateProp('columnDefs', columnDefs); // Update columnDefs last
+  // Column Headers
+  $: updateProp('headerHeight', headerHeight);
+  $: updateProp('groupHeaderHeight', groupHeaderHeight);
+  $: updateProp('floatingFiltersHeight', floatingFiltersHeight);
+  $: updateProp('pivotHeaderHeight', pivotHeaderHeight);
+  $: updateProp('pivotGroupHeaderHeight', pivotGroupHeaderHeight);
+  // Column Moving
+  $: updateProp('allowDragFromColumnsToolPanel', allowDragFromColumnsToolPanel);
+  $: updateProp('suppressMovableColumns', suppressMovableColumns);
+  $: updateProp('suppressColumnMoveAnimation', suppressColumnMoveAnimation);
+  $: updateProp('suppressDragLeaveHidesColumns', suppressDragLeaveHidesColumns);
+  $: updateProp('suppressRowGroupHidesColumns', suppressRowGroupHidesColumns);
+  // Column Sizing
+  $: updateProp('colResizeDefault', colResizeDefault);
+  $: updateProp('suppressAutoSize', suppressAutoSize);
+  $: updateProp('autoSizePadding', autoSizePadding);
+  $: updateProp('skipHeaderOnAutoSize', skipHeaderOnAutoSize);
+  // Editing
+  $: updateProp('editType', editType);
+  $: updateProp('singleClickEdit', singleClickEdit);
+  $: updateProp('suppressClickEdit', suppressClickEdit);
+  $: updateProp('stopEditingWhenCellsLoseFocus', stopEditingWhenCellsLoseFocus);
+  $: updateProp('enterMovesDown', enterMovesDown);
+  $: updateProp('enterMovesDownAfterEdit', enterMovesDownAfterEdit);
+  $: updateProp('undoRedoCellEditing', undoRedoCellEditing);
+  $: updateProp('undoRedoCellEditingLimit', undoRedoCellEditingLimit);
+  $: updateProp('readOnlyEdit', readOnlyEdit);
+  // Filtering
+  $: updateProp('quickFilterText', quickFilterText);
+  $: updateProp('cacheQuickFilter', cacheQuickFilter);
+  $: updateProp('isExternalFilterPresent', isExternalFilterPresent);
+  $: updateProp('doesExternalFilterPass', doesExternalFilterPass);
+  $: updateProp('excludeChildrenWhenTreeDataFiltering', excludeChildrenWhenTreeDataFiltering);
   // RowModel: Client-Side
-  $: if (api) updateProp('rowData', rowData);
+  $: isClientSide = rowModelType == null || rowModelType === 'clientSide';
+  $: if (isClientSide) updateProp('rowData', rowData);
 
   // TODO: events
   // TODO: custom row model
