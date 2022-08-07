@@ -26,6 +26,23 @@
       text-decoration-color: black;
     }
   }
+  :global(*::-webkit-scrollbar) {
+    background-color: transparent;
+    width: 12px;
+    height: 12px;
+  }
+  :global(*::-webkit-scrollbar-thumb) {
+    background-color: #bbb;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+    &:hover {
+      background-color: #777;
+    }
+  }
+  :global(*::-webkit-scrollbar-track) {
+    background-color: #f0f0f0;
+  }
   main {
     display: flex;
     max-width: var(--main-width);
