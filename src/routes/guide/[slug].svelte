@@ -84,9 +84,9 @@
   });
 </script>
 
-<Sidebar selected={title} {nav} />
 <div class="main">
-  <div class="inner">
+  <Sidebar selected={title} {nav} />
+  <div style:flex="1">
     <h1>Svelte AG Grid - {title}</h1>
     <section bind:this={section}>
       {#if browser}
@@ -105,10 +105,6 @@
 <style lang="scss">
   .main {
     display: flex;
-    flex: 1;
-    padding: 0 32px;
-  }
-  .inner {
-    flex: 1;
+    gap: 32px;
   }
 </style>

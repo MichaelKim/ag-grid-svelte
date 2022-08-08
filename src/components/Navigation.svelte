@@ -33,7 +33,6 @@
   }
   ul {
     padding-left: 4px;
-    margin-left: 32px;
     border-left: 2px solid lightgray;
   }
   li {

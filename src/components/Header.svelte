@@ -11,7 +11,7 @@
 <header style:transform="translateY({visible ? '0' : '-100%'}">
   <div class="container">
     <div>
-      <h1><a href="/">Svelte AG Grid</a></h1>
+      <a href="/"><b>Svelte AG Grid</b></a>
     </div>
     <div>
       <a
@@ -47,7 +47,7 @@
     padding: 0 16px;
     justify-content: space-between;
   }
-  h1 {
-    margin: 0;
+  b {
+    font-size: xx-large;
   }
 </style>

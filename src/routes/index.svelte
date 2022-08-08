@@ -21,6 +21,7 @@
 </script>
 
 <section>
+  <h1>Svelte AG Grid</h1>
   <button on:click={addRow}>Add Row</button>
   <div style:height="500px" class="ag-theme-alpine">
     <AgGridSvelte {rowData} {columnDefs} />

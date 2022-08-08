@@ -44,7 +44,6 @@
     background-color: #f0f0f0;
   }
   main {
-    display: flex;
     max-width: var(--main-width);
     margin: 0 auto;
   }
