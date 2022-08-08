@@ -52,7 +52,7 @@
       href: '/guide/' + data.slug
     }));
     return {
-      title: toCamelCase(title.slice(3)), // Strip prefix
+      title: formatSlug(title.slice(3)), // Strip prefix
       pages
     };
   });

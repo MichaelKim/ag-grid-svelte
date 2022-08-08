@@ -10,8 +10,9 @@
 
 <header style:transform="translateY({visible ? '0' : '-100%'}">
   <div class="container">
-    <div>
+    <div class="left">
       <a href="/"><b>Svelte AG Grid</b></a>
+      <a href="/guide">Docs</a>
     </div>
     <div>
       <a
@@ -47,7 +48,12 @@
     padding: 0 16px;
     justify-content: space-between;
   }
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
   b {
-    font-size: xx-large;
+    font-size: x-large;
   }
 </style>
