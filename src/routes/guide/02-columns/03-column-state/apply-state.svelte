@@ -64,6 +64,7 @@
   };
 </script>
 
+<h2>Save and Apply State</h2>
 <div>
   <button on:click={saveState}>Save State</button>
   <button on:click={restoreState}>Restore State</button>
@@ -75,8 +76,8 @@
     {columnDefs}
     {defaultColDef}
     {sideBar}
-    rowGroupPanelShow={'always'}
-    pivotPanelShow={'always'}
+    rowGroupPanelShow="always"
+    pivotPanelShow="always"
     {onGridReady}
     bind:columnApi
   />
