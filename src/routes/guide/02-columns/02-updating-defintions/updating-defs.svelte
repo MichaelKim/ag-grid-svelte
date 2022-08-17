@@ -3,7 +3,7 @@
   import type { ColDef } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
-  import type { IOlympicData } from '../types';
+  import type { IOlympicData } from '../../types';
 
   function getColumnDefs(): ColDef[] {
     return [
@@ -70,7 +70,7 @@
   <button on:click={setHeaderNames}>Set Header Names</button>
   <button on:click={removeHeaderNames}>Remove Header Names</button>
   <button on:click={setValueFormatters}>Set Value Formatters</button>
-  <button on:click={removeValueFormatters}> Remove Value Formatters </button>
+  <button on:click={removeValueFormatters}>Remove Value Formatters</button>
 </div>
 
 <div style:height="500px" class="ag-theme-alpine">

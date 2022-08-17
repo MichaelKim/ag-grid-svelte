@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IHeaderParams } from 'ag-grid-community';
-  import type { IOlympicData } from 'src/examples/types';
+  import type { IOlympicData } from '../../types';
 
   export let params: IHeaderParams<IOlympicData>;
 

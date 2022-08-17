@@ -3,7 +3,7 @@
   import type { ColDef } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
-  import type { IOlympicData } from '../types';
+  import type { IOlympicData } from '../../types';
 
   const columnDefsMedalsIncluded: ColDef[] = [
     { field: 'athlete' },
@@ -53,8 +53,8 @@
 
 <h2>Adding & Removing Columns</h2>
 <div>
-  <button on:click={onBtExcludeMedalColumns}> Exclude Medal Columns </button>
-  <button on:click={onBtIncludeMedalColumns}> Include Medal Columns </button>
+  <button on:click={onBtExcludeMedalColumns}>Exclude Medal Columns</button>
+  <button on:click={onBtIncludeMedalColumns}>Include Medal Columns</button>
 </div>
 
 <div style:height="500px" class="ag-theme-alpine">
