@@ -390,6 +390,11 @@
     if (api) _update(api as any, key, prop);
   };
 
+  // Tooltips (Update first?
+  $: updateProp('enableBrowserTooltips', enableBrowserTooltips);
+  $: updateProp('tooltipShowDelay', tooltipShowDelay);
+  $: updateProp('tooltipHideDelay', tooltipHideDelay);
+  $: updateProp('tooltipMouseTrack', tooltipMouseTrack);
   // Accessories
   $: updateProp('statusBar', statusBar);
   $: updateProp('sideBar', sideBar);
@@ -707,11 +712,6 @@
   $: updateProp('suppressRowHoverHighlight', suppressRowHoverHighlight);
   $: updateProp('suppressRowTransform', suppressRowTransform);
   $: updateProp('columnHoverHighlight', columnHoverHighlight);
-  // Tooltips
-  $: updateProp('enableBrowserTooltips', enableBrowserTooltips);
-  $: updateProp('tooltipShowDelay', tooltipShowDelay);
-  $: updateProp('tooltipHideDelay', tooltipHideDelay);
-  $: updateProp('tooltipMouseTrack', tooltipMouseTrack);
 
   // TODO: events
   // TODO: custom row model

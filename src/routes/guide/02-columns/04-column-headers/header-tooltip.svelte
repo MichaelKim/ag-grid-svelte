@@ -1,0 +1,33 @@
+<script lang="ts">
+  import AgGridSvelte from '$lib/AgGridSvelte.svelte';
+  import type { IOlympicData } from '../../types';
+
+  const columnDefs = [
+    { field: 'athlete', headerTooltip: "The athlete's name" },
+    { field: 'age', headerTooltip: 'The athlete`s age' },
+    { field: 'country' },
+    { field: 'year' },
+    { field: 'date', headerTooltip: 'The date of the Olympics' },
+    { field: 'sport', headerTooltip: 'The sport the medal was for' },
+    { field: 'gold', headerTooltip: 'How many gold medals' },
+    { field: 'silver', headerTooltip: 'How many silver medals' },
+    { field: 'bronze', headerTooltip: 'How many bronze medals' },
+    { field: 'total', headerTooltip: 'The total number of medals' }
+  ];
+
+  const defaultColDef = {
+    width: 150
+  };
+
+  let rowData: IOlympicData[] = [];
+  function onGridReady() {
+    fetch('/olympic-winners.json')
+      .then((resp) => resp.json())
+      .then((data) => (rowData = data));
+  }
+</script>
+
+<h2>Header Tooltip</h2>
+<div style:height="500px" class="ag-theme-alpine">
+  <AgGridSvelte {rowData} {columnDefs} {defaultColDef} tooltipShowDelay={500} {onGridReady} />
+</div>
