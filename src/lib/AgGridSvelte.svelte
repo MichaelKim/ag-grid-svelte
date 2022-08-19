@@ -350,7 +350,7 @@
   onMount(() => {
     const _onGridReady = gridOptions.onGridReady;
     gridOptions = ComponentUtil.copyAttributesToGridOptions(gridOptions, {
-      $$props,
+      ...$$props,
       onGridReady(event: GridReadyEvent<TData>) {
         api = event.api;
         columnApi = event.columnApi;
