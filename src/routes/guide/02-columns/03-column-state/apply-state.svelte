@@ -1,9 +1,9 @@
 <script lang="ts">
-  import 'ag-grid-enterprise';
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
   import type { ColumnApi, ColumnState } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
+  import 'ag-grid-enterprise';
   import type { IOlympicData } from '../../types';
 
   const defaultColDef = {

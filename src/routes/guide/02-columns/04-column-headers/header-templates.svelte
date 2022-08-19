@@ -1,5 +1,7 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
+  import 'ag-grid-community/styles/ag-grid.css';
+  import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
 
   const columnDefs = [

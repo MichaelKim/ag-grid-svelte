@@ -4,8 +4,7 @@
 
 <code>
   <pre>
-  npm install ag-grid-svelte
-  npm install ag-grid-community
+  npm install ag-grid-svelte ag-grid-community
 </pre>
 </code>
 
@@ -14,6 +13,18 @@
 <p>
   All grid options are available as props to <code>{'<'}AGGridSvelte/{'>'}</code>
   and leverages Svelte's reactivity to update on changes.
+</p>
+
+<p>
+  Check out the <a
+    href="https://www.ag-grid.com/documentation/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    official AG Grid docs
+  </a>
+   for further documentation on AG Grid functionality. This page serves to provide the same AG Grid examples
+  written instead using AG Grid Svelte, and any differences will be explicitly mentioned in the examples.
 </p>
 
 <h2>Theming</h2>
@@ -71,5 +82,29 @@
   </script>
   
   <AGGridSvelte {onGridReady} />`}
+</pre>
+</code>
+
+<h2>Styling</h2>
+
+<p>
+  Since styles in Svelte are scoped to that component, make sure to apply styles globally when
+  targeting inner class names:
+</p>
+
+<code>
+  <pre>
+  {`<div style:height="500px" class="ag-theme-alpine">
+    <AgGridSvelte {rowData} {columnDefs} {defaultColDef} {onGridReady} />
+  </div>
+  
+  <`}{`style>
+    .ag-theme-alpine {
+      --ag-background-color: #ddd;
+    }
+    .ag-theme-alpine :global(.ag-header-cell-label) {
+      font-style: italic;
+    }
+  </style>`}
 </pre>
 </code>
