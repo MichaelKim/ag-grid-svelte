@@ -23,7 +23,7 @@
   >
     official AG Grid docs
   </a>
-   for further documentation on AG Grid functionality. This page serves to provide the same AG Grid examples
+  for further documentation on AG Grid functionality. This page serves to provide the same AG Grid examples
   written instead using AG Grid Svelte, and any differences will be explicitly mentioned in the examples.
 </p>
 
