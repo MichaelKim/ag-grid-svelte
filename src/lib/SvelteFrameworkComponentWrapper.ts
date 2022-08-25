@@ -34,6 +34,8 @@ class NewSvelteComponent<P> implements IComponent<P>, WrappableInterface {
   init(params: P): void {
     // Guaranteed to be called
     this.eParentElement = document.createElement('div');
+    this.eParentElement.style.width = '100%';
+    this.eParentElement.style.height = '100%';
     this.componentInstance = new this.SvelteComponent({
       target: this.eParentElement,
       props: { params }
