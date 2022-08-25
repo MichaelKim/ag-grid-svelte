@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Github from '../icons/Github.svelte';
+
   let visible = true;
   let lastTop = 0;
   function onScroll() {
@@ -19,8 +21,9 @@
         href="https://github.com/MichaelKim/ag-grid-svelte"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Github repository"
       >
-        Github
+        <Github />
       </a>
     </div>
   </div>
