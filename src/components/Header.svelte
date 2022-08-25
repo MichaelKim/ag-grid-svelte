@@ -45,7 +45,7 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0 1rem;
     justify-content: space-between;
   }
   .left {

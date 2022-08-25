@@ -26,6 +26,9 @@
       text-decoration-color: black;
     }
   }
+  :global(pre) {
+    white-space: break-spaces;
+  }
   :global(*::-webkit-scrollbar) {
     background-color: transparent;
     width: 12px;

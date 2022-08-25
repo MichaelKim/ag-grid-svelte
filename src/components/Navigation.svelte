@@ -14,7 +14,7 @@
     {#each headings as heading}
       <li>
         <a href="#{heading}" on:click|preventDefault={() => onClick(heading)}>
-          <span>{heading}</span>
+          {heading}
         </a>
       </li>
     {/each}
@@ -39,7 +39,8 @@
     list-style: none;
     padding: 4px;
   }
-  span {
+  a {
     color: #555;
+    font-size: small;
   }
 </style>

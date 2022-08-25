@@ -13,6 +13,7 @@
   aside {
     width: 200px;
     height: calc(100vh - var(--header-height));
+    padding-left: 1rem;
     overflow: auto;
     position: sticky;
     top: var(--header-height);
