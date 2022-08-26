@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Menu from '../icons/Menu.svelte';
   import Github from '../icons/Github.svelte';
 
   let visible = true;
@@ -13,6 +14,9 @@
 <header style:transform="translateY({visible ? '0' : '-100%'}">
   <div class="container">
     <div class="left">
+      <button class="menu-btn" aria-label="Toggle navigation">
+        <Menu />
+      </button>
       <a href="/"><b>Svelte AG Grid</b></a>
       <a href="/guide">Docs</a>
     </div>
@@ -55,6 +59,14 @@
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+  .menu-btn {
+    display: none;
+  }
+  @media (max-width: 1000px) {
+    .menu-btn {
+      display: inherit;
+    }
   }
   b {
     font-size: x-large;

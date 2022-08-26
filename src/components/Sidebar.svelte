@@ -18,4 +18,9 @@
     position: sticky;
     top: var(--header-height);
   }
+  @media (max-width: 1000px) {
+    aside {
+      display: none;
+    }
+  }
 </style>

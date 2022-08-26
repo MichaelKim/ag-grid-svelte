@@ -43,4 +43,9 @@
     color: #555;
     font-size: small;
   }
+  @media (max-width: 1000px) {
+    nav {
+      display: none;
+    }
+  }
 </style>
