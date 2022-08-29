@@ -45,3 +45,5 @@ yarn preview  # View the built docs locally
 yarn test     # Run library tests
 yarn package  # Package the library
 ```
+
+Icons are taken from Github's Octicons.
