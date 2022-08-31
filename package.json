@@ -1,6 +1,6 @@
 {
   "name": "ag-grid-svelte",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An unofficial Svelte wrapper for AG Grid",
   "main": "./index.js",
   "type": "module",
