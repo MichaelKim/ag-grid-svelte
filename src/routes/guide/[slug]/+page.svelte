@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   import { afterUpdate } from 'svelte';
   import Navigation from '../../../components/Navigation.svelte';
   import Sidebar from '../../../components/Sidebar.svelte';
