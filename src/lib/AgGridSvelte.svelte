@@ -374,20 +374,14 @@
     };
   });
 
-  const _update = <K extends keyof Options>(
-    setters: Record<string, (value: unknown) => void>,
-    key: K,
-    prop: Options[K]
-  ) => {
+  const updateProp = <K extends keyof Options>(key: K, prop: Options[K]) => {
+    if (!api) return;
+
+    const setters = api as unknown as Record<string, (value: unknown) => void>;
     const setterName = `set${key.charAt(0).toUpperCase()}${key.substring(1)}`;
     const formattedProp = formatProperty.get(key)?.(prop) ?? prop;
-    if (setters[setterName]) setters[setterName](formattedProp);
+    setters[setterName]?.(formattedProp);
     gridOptions[key] = formattedProp;
-  };
-
-  $: updateProp = <K extends keyof Options>(key: K, prop: Options[K]) => {
-    // Pull into separate function so this doesn't react on gridOptions
-    if (api) _update(api as any, key, prop);
   };
 
   // Tooltips (Update first?
