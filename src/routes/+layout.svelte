@@ -1,13 +1,8 @@
 <script lang="ts">
-  import Header from '../components/Header.svelte';
-
   export const prerender = true;
 </script>
 
-<Header />
-<main>
-  <slot />
-</main>
+<slot />
 
 <style lang="scss">
   :global(body) {
@@ -20,6 +15,10 @@
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     background-color: var(--bg-color);
     font-size: 16px;
+  }
+  :global(main) {
+    max-width: var(--main-width);
+    margin: 0 auto;
   }
   :global(a) {
     text-decoration: none;
@@ -47,9 +46,5 @@
   }
   :global(*::-webkit-scrollbar-track) {
     background-color: #f0f0f0;
-  }
-  main {
-    max-width: var(--main-width);
-    margin: 0 auto;
   }
 </style>

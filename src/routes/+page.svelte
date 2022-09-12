@@ -2,6 +2,7 @@
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
+  import Header from '../components/Header.svelte';
 
   let rowData = [
     { make: 'Toyota', model: 'Celica', price: 35000 },
@@ -20,20 +21,21 @@
   }
 </script>
 
-<section>
+<Header />
+<main>
   <h1>Svelte AG Grid</h1>
   <button on:click={addRow}>Add Row</button>
   <div style:height="500px" class="ag-theme-alpine">
     <AgGridSvelte {rowData} {columnDefs} />
   </div>
-</section>
+</main>
 
 <svelte:head>
   <title>Svelte AG Grid - Svelte Data Grid</title>
 </svelte:head>
 
 <style>
-  section {
-    width: 100%;
+  main {
+    padding: 0 1rem;
   }
 </style>

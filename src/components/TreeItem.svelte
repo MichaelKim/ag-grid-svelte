@@ -1,7 +1,7 @@
 <script lang="ts">
+  import type { Nav } from 'src/routes/guide/pages';
   import Chevron from '../icons/Chevron.svelte';
   import { slide } from './collapsible';
-  import type { Nav } from './TreeView.svelte';
   import TreeView from './TreeView.svelte';
 
   export let selected: string;

@@ -1,6 +1,9 @@
 <script lang="ts">
   import Menu from '../icons/Menu.svelte';
   import Github from '../icons/Github.svelte';
+  import NavBar from './NavBar.svelte';
+
+  export let selected: string = '';
 
   let visible = true;
   let lastTop = 0;
@@ -9,12 +12,14 @@
     if (lastTop) visible = lastTop > currTop;
     lastTop = currTop;
   }
+
+  let open = false;
 </script>
 
 <header style:transform="translateY({visible ? '0' : '-100%'}">
   <div class="container">
     <div class="left">
-      <button class="menu-btn" aria-label="Toggle navigation">
+      <button class="menu-btn" aria-label="Toggle navigation" on:click={() => (open = !open)}>
         <Menu />
       </button>
       <a href="/"><b>Svelte AG Grid</b></a>
@@ -32,6 +37,8 @@
     </div>
   </div>
 </header>
+
+<NavBar {selected} bind:open />
 
 <svelte:window on:scroll|passive={onScroll} />
 
@@ -62,6 +69,9 @@
   }
   .menu-btn {
     display: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
   @media (max-width: 1000px) {
     .menu-btn {

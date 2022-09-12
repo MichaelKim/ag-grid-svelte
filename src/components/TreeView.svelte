@@ -1,8 +1,5 @@
-<script lang="ts" context="module">
-  export type Nav = { title: string; pages: Nav[] } | { title: string; href: string };
-</script>
-
 <script lang="ts">
+  import type { Nav } from 'src/routes/guide/pages';
   import TreeItem from './TreeItem.svelte';
 
   export let selected: string;

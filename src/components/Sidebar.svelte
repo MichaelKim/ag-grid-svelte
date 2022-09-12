@@ -1,11 +1,12 @@
 <script lang="ts">
-  import TreeView, { type Nav } from './TreeView.svelte';
+  import { nav } from '../routes/guide/pages';
+  import TreeView from './TreeView.svelte';
 
-  export let nav: Nav[];
   export let selected: string;
+  export let visible = false;
 </script>
 
-<aside>
+<aside class:visible>
   <TreeView {selected} {nav} />
 </aside>
 
@@ -22,5 +23,9 @@
     aside {
       display: none;
     }
+  }
+  .visible {
+    display: block;
+    height: 100vh;
   }
 </style>

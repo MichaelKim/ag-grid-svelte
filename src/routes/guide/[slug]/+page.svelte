@@ -1,6 +1,7 @@
 <script lang="ts">
   import { browser } from '$app/environment';
   import { afterUpdate } from 'svelte';
+  import Header from '../../../components/Header.svelte';
   import Navigation from '../../../components/Navigation.svelte';
   import Sidebar from '../../../components/Sidebar.svelte';
   import { scrollToHash } from '../../../util';
@@ -8,7 +9,7 @@
 
   export let data: PageData;
 
-  $: ({ title, component, nav } = data);
+  $: ({ title, component } = data);
 
   let headings: string[] = [];
   let section: HTMLElement;
@@ -24,8 +25,9 @@
   });
 </script>
 
-<div class="main">
-  <Sidebar selected={title} {nav} />
+<Header selected={title} />
+<main class="main">
+  <Sidebar selected={title} />
   <div class="inner">
     <h1>Svelte AG Grid - {title}</h1>
     <section bind:this={section}>
@@ -36,7 +38,7 @@
     </section>
   </div>
   <Navigation {headings} />
-</div>
+</main>
 
 <svelte:head>
   <title>Svelte AG Grid - {title}</title>
