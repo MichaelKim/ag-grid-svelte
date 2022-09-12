@@ -51,6 +51,6 @@
   }
   .inner {
     flex: 1;
-    padding: 0 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 </style>
