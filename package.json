@@ -6,8 +6,8 @@
   "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.22.2",
-    "@sveltejs/adapter-static": "1.0.0-next.42",
-    "@sveltejs/kit": "1.0.0-next.474",
+    "@sveltejs/adapter-static": "1.0.0-next.43",
+    "@sveltejs/kit": "1.0.0-next.481",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "eslint": "^8.16.0",
