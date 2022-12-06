@@ -108,3 +108,58 @@
   </style>`}
 </pre>
 </code>
+
+<h2>Enterprise</h2>
+
+<p>
+  To use AG Grid Enterprise, import <code>ag-grid-enterprise</code>
+  before any grid instance is created. Within Svelte, this can be done in a regular
+  <code>{`<`}script></code>
+  tag or (preferably) a
+  <code>module</code>
+  script:
+</p>
+
+<code>
+  <pre>
+  {`<`}{`script context="module">
+    // Will get called only once when this module is loaded
+    import 'ag-grid-enterprise';
+  </script>`}</pre>
+</code>
+
+<p>You can set a license key in a similar way:</p>
+
+<code>
+  <pre>
+  {`<`}{`script context="module">
+    import { LicenseManager } from 'ag-grid-enterprise';
+
+    LicenseManager.setLicenseKey("your license key");
+  </script>`}</pre>
+</code>
+
+<p>
+  For Vite / SvelteKit users, if you are getting a warning about the enterprise package missing, it
+  may be due to Vite's dependency pre-bundling. Try
+  <a
+    href="https://vitejs.dev/guide/dep-pre-bundling.html#file-system-cache"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    clearing your Vite cache
+  </a>
+  (run
+  <code>vite dev --force</code>
+  ) or adding
+  <code>ag-grid-svelte</code>
+  to
+  <a
+    href="https://vitejs.dev/config/dep-optimization-options.html#optimizedeps-include"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <code>optimize.include</code>
+  </a>
+   in your Vite config.
+</p>
