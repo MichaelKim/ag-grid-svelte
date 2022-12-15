@@ -5,15 +5,16 @@
   "main": "./index.js",
   "type": "module",
   "dependencies": {
-    "svelte": "^3.53.1"
+    "svelte": "^3.55.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.22.2",
-    "@sveltejs/adapter-static": "1.0.0-next.48",
-    "@sveltejs/kit": "1.0.0-next.570",
-    "@sveltejs/package": "^1.0.0-next.6",
+    "@sveltejs/adapter-static": "^1.0.0",
+    "@sveltejs/kit": "^1.0.0",
+    "@sveltejs/package": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "ag-grid-enterprise": "^28.2.1",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^4.0.0",
@@ -22,14 +23,13 @@
     "sass": "^1.54.0",
     "svelte-check": "^2.10.0",
     "svelte-preprocess": "^4.10.7",
-    "svelte2tsx": "^0.5.21",
+    "svelte2tsx": "^0.5.22",
     "tslib": "^2.3.1",
     "typescript": "^4.7.4",
-    "vite": "^3.2.0"
+    "vite": "^4.0.0"
   },
   "peerDependencies": {
-    "ag-grid-community": "^28.2.1",
-    "ag-grid-enterprise": "^28.2.1"
+    "ag-grid-community": "^28"
   },
   "scripts": {
     "dev": "vite dev",
