@@ -19,8 +19,13 @@
 
 <li>
   {#if 'href' in item}
-    <a href={item.href} class="item" style:padding-left="8px">
-      <span class:selected={selected === item.title}>{item.title}</span>
+    <a
+      href={item.href}
+      class="item"
+      class:selected={selected === item.title}
+      style:padding-left="8px"
+    >
+      <span>{item.title}</span>
     </a>
   {:else}
     <div class="item" on:click={() => (open = !open)}>
@@ -54,6 +59,7 @@
   }
   .selected {
     color: #0000d0;
+    background-color: #eee;
   }
   .down {
     transform: rotate(90deg);
