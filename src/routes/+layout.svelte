@@ -1,8 +1,3 @@
-<script lang="ts">
-  export const prerender = true;
-  export const trailingSlash = 'always';
-</script>
-
 <slot />
 
 <style lang="scss">
