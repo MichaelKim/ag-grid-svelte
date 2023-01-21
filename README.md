@@ -1,5 +1,7 @@
 # ag-grid-svelte
 
+[![NPM Version](https://img.shields.io/npm/v/ag-grid-svelte?color=40b3ff)](https://npmjs.org/package/ag-grid-svelte) [![license](https://img.shields.io/github/license/michaelkim/ag-grid-svelte)](LICENSE.md)
+
 An unofficial Svelte wrapper for [AG Grid](http://www.ag-grid.com/).
 
 ## Usage
@@ -46,4 +48,4 @@ yarn test     # Run library tests
 yarn package  # Package the library
 ```
 
-Icons are taken from Github's Octicons.
+Icons are taken from [Github's Octicons](https://primer.style/octicons/).
