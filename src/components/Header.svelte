@@ -1,6 +1,7 @@
 <script lang="ts">
-  import Menu from '../icons/Menu.svelte';
   import Github from '../icons/Github.svelte';
+  import Menu from '../icons/Menu.svelte';
+  import Logo from './Logo.svelte';
   import NavBar from './NavBar.svelte';
 
   export let selected: string = '';
@@ -22,7 +23,7 @@
       <button class="menu-btn" aria-label="Toggle navigation" on:click={() => (open = !open)}>
         <Menu />
       </button>
-      <a href="/"><b>Svelte AG Grid</b></a>
+      <Logo />
       <a href="/guide">Docs</a>
     </div>
     <div>
@@ -42,7 +43,7 @@
 
 <svelte:window on:scroll|passive={onScroll} />
 
-<style>
+<style lang="scss">
   header {
     height: var(--header-height);
     border-bottom: 2px solid lightgrey;
@@ -78,7 +79,11 @@
       display: inherit;
     }
   }
-  b {
-    font-size: x-large;
+  a {
+    color: black;
+    &:hover {
+      text-decoration: none;
+      color: #777;
+    }
   }
 </style>

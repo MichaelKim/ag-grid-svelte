@@ -1,4 +1,12 @@
+<script lang="ts">
+  import logo from '../icons/favicon.svg';
+</script>
+
 <slot />
+
+<svelte:head>
+  <link rel="icon" href={logo} type="image/svg+xml" />
+</svelte:head>
 
 <style lang="scss">
   :global(body) {
