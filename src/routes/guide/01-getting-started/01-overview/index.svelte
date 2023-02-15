@@ -151,3 +151,7 @@ ${'<'}style>
   </a>
   in your Vite config.
 </p>
+
+<h2>Version Compatibility</h2>
+
+<p>AG Grid Svelte requires Svelte 3, and has been tested with AG Grid 28 and 29.</p>
