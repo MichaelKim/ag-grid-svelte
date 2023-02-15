@@ -2,6 +2,7 @@
   import { browser } from '$app/environment';
   import { afterNavigate } from '$app/navigation';
   import { fade, fly } from 'svelte/transition';
+  import Logo from './Logo.svelte';
   import Sidebar from './Sidebar.svelte';
 
   export let selected: string;
@@ -13,26 +14,42 @@
     // Close nav bar when a link is clicked
     open = false;
   });
+
+  let start: HTMLDivElement;
+  let end: HTMLDivElement;
+
+  $: if (open) start?.focus();
 </script>
 
 {#if open}
-  <div class="backdrop" on:click={() => (open = false)} transition:fade={{ duration: 150 }} />
+  <div
+    class="backdrop"
+    on:click={() => (open = false)}
+    aria-hidden="true"
+    transition:fade={{ duration: 150 }}
+  />
   <div class="nav-bar" transition:fly={{ x: -200, duration: 200 }}>
-    <a href="/"><b>Svelte AG Grid</b></a>
+    <div tabindex="0" bind:this={start} />
+    <Logo />
     <Sidebar visible {selected} />
+    <div tabindex="0" bind:this={end} />
   </div>
 {/if}
 
 <svelte:window
   on:keydown={(e) => {
     if (e.key === 'Escape') open = false;
+    else if (open && e.key === 'Tab') {
+      if (start === document.activeElement && e.shiftKey) {
+        end.focus();
+      } else if (end === document.activeElement && !e.shiftKey) {
+        start.focus();
+      }
+    }
   }}
 />
 
 <style>
-  b {
-    font-size: x-large;
-  }
   .backdrop {
     position: fixed;
     inset: 0;

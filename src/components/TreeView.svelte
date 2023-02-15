@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Nav } from 'src/routes/guide/pages';
+  import type { Nav } from '../routes/guide/pages';
   import TreeItem from './TreeItem.svelte';
 
   export let selected: string;
