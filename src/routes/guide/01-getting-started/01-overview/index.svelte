@@ -152,3 +152,9 @@ ${'<'}style>
 <h2>Version Compatibility</h2>
 
 <p>AG Grid Svelte requires Svelte 3, and has been tested with AG Grid 28 and 29.</p>
+
+<p>
+  However, when using TypeScript and AG Grid 29, there may be some type errors due to slight
+  differences between v28 and v29. If you encounter a different issue, please raise an issue on the
+  Github repo.
+</p>
