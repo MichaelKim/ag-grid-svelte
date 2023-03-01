@@ -1,12 +1,13 @@
 <script lang="ts">
   import Highlight from '../../../../components/Highlight.svelte';
+  import AgGrid from '../../../../icons/AgGrid.svelte';
 </script>
 
 <h2>Getting Started</h2>
 
 <p>AG Grid Svelte is designed to provide a seamless AG Grid integration to any Svelte project.</p>
 
-<Highlight code="npm install ag-grid-svelte ag-grid-community" lang="plaintext" />
+<Highlight code="> npm install ag-grid-svelte ag-grid-community" lang="plaintext" />
 
 <h2>Usage</h2>
 
@@ -16,15 +17,11 @@
 </p>
 
 <p>
-  Check out the <a
-    href="https://www.ag-grid.com/documentation/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    official AG Grid docs
+  Check out the <a href="https://www.ag-grid.com/documentation/" rel="noreferrer">
+    official AG Grid docs <AgGrid size={16} />
   </a>
-  for further documentation on AG Grid functionality. This page serves to provide the same AG Grid examples
-  written instead using AG Grid Svelte, and any differences will be explicitly mentioned in the examples.
+  for further documentation on AG Grid functionality as most of the features are shared with the official
+  packages.
 </p>
 
 <h2>Theming</h2>
@@ -80,8 +77,8 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS`}
 <h2>Styling</h2>
 
 <p>
-  Since styles in Svelte are scoped to that component, make sure to apply styles globally when
-  targeting inner class names:
+  Since styles in Svelte are scoped to that component, make sure to apply styles globally so inner
+  elements can pick up the theme.
 </p>
 
 <Highlight
@@ -90,10 +87,10 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS`}
 </div>
 
 ${'<'}style>
-  .ag-theme-alpine {
+  :global(.ag-theme-alpine) {
     --ag-background-color: #ddd;
   }
-  .ag-theme-alpine :global(.ag-header-cell-label) {
+  :global(.ag-theme-alpine .ag-header-cell-label) {
     font-style: italic;
   }
 </style>`}

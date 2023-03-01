@@ -6,7 +6,7 @@ An unofficial Svelte wrapper for [AG Grid](http://www.ag-grid.com/). Tested with
 
 ## Usage
 
-Install with `npm install ag-grid-svelte`
+Install with `npm install ag-grid-svelte ag-grid-community`
 
 ```svelte
 <script>
@@ -24,10 +24,15 @@ Install with `npm install ag-grid-svelte`
   }
 </script>
 
-<h2>Column Definitions</h2>
 <div style:height="500px" class="ag-theme-alpine">
   <AgGridSvelte {rowData} {columnDefs} {onGridReady} />
 </div>
+
+<style>
+  .ag-theme-alpine {
+    --ag-background-color: #ddd;
+  }
+</style>
 ```
 
 ## Developing
