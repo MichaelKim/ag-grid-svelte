@@ -25,7 +25,7 @@
   code={`<script>
   import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
   import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
-</script>`}
+${'<'}/script>`}
   lang="ts"
 />
 
@@ -41,7 +41,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/ag-grid-community@28.0.0/styles/ag-theme-alpine.css"
   />
-</svelte:window>
+${'<'}/svelte:window>
 `}
   lang="html"
 />
