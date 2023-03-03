@@ -27,6 +27,14 @@ pre {
   white-space: break-spaces;
 }
 
+code {
+  background-color: #fff;
+  padding: 0 4px;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  color: #d73a49;
+}
+
 *::-webkit-scrollbar {
   background-color: transparent;
   width: 12px;
