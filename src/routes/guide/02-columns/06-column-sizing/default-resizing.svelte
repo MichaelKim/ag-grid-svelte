@@ -32,7 +32,7 @@
   }
 
   let api: GridApi<IOlympicData>;
-  const onFirstDataRendered = (params: FirstDataRenderedEvent) => {
+  const onFirstDataRendered = (_: FirstDataRenderedEvent) => {
     api.sizeColumnsToFit();
   };
 </script>

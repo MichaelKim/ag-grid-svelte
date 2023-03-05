@@ -22,8 +22,7 @@
   const defaultColDef: ColDef = { sortable: true };
 
   const autoGroupColumnDef: ColDef<IOlympicData> = {
-    comparator: (valueA, valueB, nodeA, nodeB, isDescending) =>
-      valueA == valueB ? 0 : valueA > valueB ? 1 : -1,
+    comparator: (valueA, valueB) => (valueA == valueB ? 0 : valueA > valueB ? 1 : -1),
     field: 'athlete',
     sort: 'asc'
   };
