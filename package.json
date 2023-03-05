@@ -11,7 +11,7 @@
     "@playwright/test": "^1.22.2",
     "@sveltejs/adapter-static": "^2.0.1",
     "@sveltejs/kit": "^1.6.0",
-    "@sveltejs/package": "^1.0.2",
+    "@sveltejs/package": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "ag-grid-community": "^29.0.0",
@@ -54,5 +54,15 @@
   "bugs": {
     "url": "https://github.com/MichaelKim/ag-grid-svelte/issues"
   },
-  "homepage": "https://github.com/MichaelKim/ag-grid-svelte#readme"
+  "homepage": "https://github.com/MichaelKim/ag-grid-svelte#readme",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "svelte": "./dist/index.js"
 }
