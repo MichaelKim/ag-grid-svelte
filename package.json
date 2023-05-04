@@ -2,7 +2,6 @@
   "name": "ag-grid-svelte",
   "version": "0.1.4",
   "description": "An unofficial Svelte wrapper for AG Grid",
-  "main": "./index.js",
   "type": "module",
   "dependencies": {
     "svelte": "^3.55.0"
@@ -55,14 +54,16 @@
     "url": "https://github.com/MichaelKim/ag-grid-svelte/issues"
   },
   "homepage": "https://github.com/MichaelKim/ag-grid-svelte#readme",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "svelte": "./dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js"
     }
-  },
-  "files": [
-    "dist"
-  ],
-  "svelte": "./dist/index.js"
+  }
 }
