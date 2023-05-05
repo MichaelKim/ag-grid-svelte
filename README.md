@@ -10,7 +10,7 @@ Install with `npm install ag-grid-svelte ag-grid-community`
 
 ```svelte
 <script>
-  import AgGridSvelte from '$lib/AgGridSvelte.svelte';
+  import AgGridSvelte from 'ag-grid-svelte';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
 
