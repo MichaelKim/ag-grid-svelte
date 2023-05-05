@@ -1,4 +1,4 @@
-# ag-grid-svelte
+# [<img src="https://github.com/MichaelKim/ag-grid-svelte/blob/main/src/icons/favicon.svg?raw=true" width="32" alt="AG Grid Svelte logo">](https://ag-grid-svelte.michael.kim) ag-grid-svelte
 
 [![NPM Version](https://img.shields.io/npm/v/ag-grid-svelte?color=40b3ff)](https://npmjs.org/package/ag-grid-svelte) [![license](https://img.shields.io/github/license/michaelkim/ag-grid-svelte)](LICENSE)
 
