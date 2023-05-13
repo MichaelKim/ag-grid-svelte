@@ -3,7 +3,7 @@
 </script>
 
 <a href="/" class="logo" aria-label="Homepage">
-  <img src={logo} alt="AG Grid Svelte logo" />
+  <img width={36} src={logo} alt="AG Grid Svelte logo" />
   <b>Svelte AG Grid</b>
 </a>
 
