@@ -346,12 +346,14 @@
   export let style: string = '';
 
   let eGui: HTMLDivElement;
+  let ready = false;
 
   onMount(() => {
     const _onGridReady = gridOptions.onGridReady;
     gridOptions = ComponentUtil.copyAttributesToGridOptions(gridOptions, {
       ...$$props,
       onGridReady(event: GridReadyEvent<TData>) {
+        ready = true;
         api = event.api;
         columnApi = event.columnApi;
         onGridReady?.(event);
@@ -371,11 +373,12 @@
 
     return () => {
       grid.destroy();
+      ready = false;
     };
   });
 
   const updateProp = <K extends keyof Options>(key: K, prop: Options[K]) => {
-    if (!api) return;
+    if (!api || !ready) return;
 
     const setters = api as unknown as Record<string, (value: unknown) => void>;
     const setterName = `set${key.charAt(0).toUpperCase()}${key.substring(1)}`;
