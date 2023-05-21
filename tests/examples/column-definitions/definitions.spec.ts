@@ -6,7 +6,7 @@ function getGrid(page: Page, index: number) {
 
 test.describe('Column Definitions', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/guide/column-definitions');
+    await page.goto('/guide/column-definitions/');
   });
 
   test('Page loads', async ({ page }) => {
