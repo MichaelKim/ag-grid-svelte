@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.1](https://github.com/MichaelKim/ag-grid-svelte/compare/v0.2.0...v0.2.1) (2023-05-21)
+
+
+### Bug Fixes
+
+* don't call prop setters after grid is destroyed ([23cdef0](https://github.com/MichaelKim/ag-grid-svelte/commit/23cdef06ab078679c007f9ecf9e0d961b2fa90e1))
+
 ## [0.2.0](https://github.com/MichaelKim/ag-grid-svelte/compare/v0.1.4...v0.2.0) (2023-05-04)
 
 
