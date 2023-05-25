@@ -4,7 +4,7 @@
   import Logo from './Logo.svelte';
   import NavBar from './NavBar.svelte';
 
-  export let selected: string = '';
+  export let selected = '';
 
   let visible = true;
   let lastTop = 0;

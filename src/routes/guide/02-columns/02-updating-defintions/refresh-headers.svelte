@@ -37,7 +37,7 @@
   function onBtUpperNames() {
     const newDefs = getColumnDefs();
     newDefs.forEach((c) => {
-      c.headerName = c.field!.toUpperCase();
+      c.headerName = c.field?.toUpperCase();
     });
     columnDefs = newDefs;
   }

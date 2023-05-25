@@ -4,7 +4,7 @@
 
   export let selected: string;
   export let nav: Nav[];
-  export let onOpen = () => {};
+  export let onOpen: () => void = () => undefined;
 </script>
 
 <ul>

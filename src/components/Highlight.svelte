@@ -29,7 +29,7 @@
         ]
       },
       {
-        begin: /^(\s*)(<st\yle.*>)/gm,
+        begin: /^(\s*)(<style.*>)/gm,
         end: /^(\s*)(<\/style>)/gm,
         subLanguage: 'css',
         excludeBegin: true,
@@ -41,12 +41,12 @@
         subLanguage: 'typescript',
         contains: [
           {
-            begin: /[\{]/,
-            end: /[\}]/,
+            begin: /[{]/,
+            end: /[}]/,
             skip: true
           },
           {
-            begin: /([#:\/@])(if|else|each|await|then|catch|debug|const|html)/gm,
+            begin: /([#:/@])(if|else|each|await|then|catch|debug|const|html)/gm,
             className: 'keyword',
             relevance: 10
           }

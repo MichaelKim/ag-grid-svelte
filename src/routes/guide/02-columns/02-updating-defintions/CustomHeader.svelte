@@ -4,7 +4,7 @@
 
   export let params: IHeaderParams<IOlympicData>;
 
-  let menuButtonRef: HTMLDivElement;
+  let menuButtonRef: HTMLElement;
 
   $: ({ enableMenu, displayName, showColumnMenu } = params);
   $: console.log('CustomHeader rendered -> ' + params.displayName);
@@ -12,7 +12,7 @@
 
 <div class="header">
   {#if enableMenu}
-    <div
+    <button
       bind:this={menuButtonRef}
       class="ag-icon ag-icon-menu"
       style:cursor="pointer"
@@ -27,5 +27,9 @@
     display: flex;
     align-items: center;
     gap: 4px;
+  }
+  button {
+    background-color: transparent;
+    border: none;
   }
 </style>

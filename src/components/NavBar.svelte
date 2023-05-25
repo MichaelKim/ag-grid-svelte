@@ -29,9 +29,11 @@
     transition:fade={{ duration: 150 }}
   />
   <div class="nav-bar" transition:fly={{ x: -200, duration: 200 }}>
+    <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" bind:this={start} />
     <Logo />
     <Sidebar visible {selected} />
+    <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" bind:this={end} />
   </div>
 {/if}

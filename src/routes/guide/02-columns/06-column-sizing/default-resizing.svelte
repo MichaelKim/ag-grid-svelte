@@ -1,6 +1,6 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
-  import type { FirstDataRenderedEvent, GridApi } from 'ag-grid-community';
+  import type { GridApi } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
@@ -32,7 +32,7 @@
   }
 
   let api: GridApi<IOlympicData>;
-  const onFirstDataRendered = (_: FirstDataRenderedEvent) => {
+  const onFirstDataRendered = () => {
     api.sizeColumnsToFit();
   };
 </script>

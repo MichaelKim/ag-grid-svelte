@@ -46,11 +46,8 @@
   };
 
   const autoSizeAll = (skipHeader: boolean) => {
-    const allColumnIds: string[] = [];
-    columnApi.getColumns()!.forEach((column) => {
-      allColumnIds.push(column.getId());
-    });
-    columnApi.autoSizeColumns(allColumnIds, skipHeader);
+    const columns = columnApi.getColumns();
+    if (columns) columnApi.autoSizeColumns(columns, skipHeader);
   };
 </script>
 

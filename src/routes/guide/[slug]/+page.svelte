@@ -15,11 +15,13 @@
   let section: HTMLElement;
   afterUpdate(() => {
     headings = [];
-    section.querySelectorAll('h2').forEach((h2) => {
-      const text = h2.textContent!;
-      headings.push(text);
-      h2.id = text;
-    });
+    for (const h2 of section.querySelectorAll('h2')) {
+      const text = h2.textContent;
+      if (text) {
+        headings.push(text);
+        h2.id = text;
+      }
+    }
 
     scrollToHash();
   });
