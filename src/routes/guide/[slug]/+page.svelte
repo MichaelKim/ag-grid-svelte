@@ -16,7 +16,7 @@
   afterUpdate(() => {
     headings = [];
     for (const h2 of section.querySelectorAll('h2')) {
-      const text = h2.textContent;
+      const text = h2.textContent?.trim();
       if (text) {
         headings.push(text);
         h2.id = text;
