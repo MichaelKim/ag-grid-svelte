@@ -13,7 +13,7 @@ export class SvelteFrameworkComponentWrapper
   extends BaseComponentWrapper<WrappableInterface>
   implements FrameworkComponentWrapper
 {
-  createWrapper(UserSvelteComponent: SvelteComponentType): WrappableInterface {
+  override createWrapper(UserSvelteComponent: SvelteComponentType): WrappableInterface {
     return new NewSvelteComponent(UserSvelteComponent);
   }
 }
@@ -21,7 +21,7 @@ export class SvelteFrameworkComponentWrapper
 class NewSvelteComponent<P> implements IComponent<P>, WrappableInterface {
   private eParentElement!: HTMLElement;
   private componentInstance!: SvelteComponentTyped<{ params: P }>;
-  private methods: { [name: string]: (...args: any[]) => void } = {
+  private methods: { [name: string]: (...args: P[]) => void } = {
     // Provide a default refresh method
     refresh: (params: P) => {
       this.componentInstance.$set({ params });
@@ -64,7 +64,8 @@ class NewSvelteComponent<P> implements IComponent<P>, WrappableInterface {
 }
 
 export class SvelteFrameworkOverrides extends VanillaFrameworkOverrides {
-  isFrameworkComponent(comp: any): boolean {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  override isFrameworkComponent(comp: any): boolean {
     // HACK: In dev, the component is wrapped in a Svelte Proxy, obscuring the prototype chain.
     // Instead, components are identified by their class name (internally set to Proxy<ComponentName>).
     // In prod, it should be safe to directly check if they extend SvelteComponent.

@@ -342,8 +342,8 @@
   export let modules: Module[] = [];
 
   /* Svelte-specific additional props */
-  export let className: string = '';
-  export let style: string = '';
+  export let className = '';
+  export let style = '';
 
   let eGui: HTMLDivElement;
   let ready = false;
