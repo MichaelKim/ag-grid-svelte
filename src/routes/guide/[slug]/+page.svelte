@@ -1,9 +1,10 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import { afterUpdate } from 'svelte';
+  import { afterUpdate, SvelteComponentTyped } from 'svelte';
   import Header from '../../../components/Header.svelte';
   import Navigation from '../../../components/Navigation.svelte';
   import Sidebar from '../../../components/Sidebar.svelte';
+  import AgGrid from '../../../icons/AgGrid.svelte';
   import { scrollToHash } from '../../../util';
   import type { PageData } from './$types';
 
@@ -25,17 +26,23 @@
 
     scrollToHash();
   });
+
+  let instance: SvelteComponentTyped;
+  $: agGridLink = instance?.aggrid;
 </script>
 
 <Header selected={title} />
 <main class="main">
   <Sidebar selected={title} />
   <div class="inner">
-    <h1>Svelte AG Grid - {title}</h1>
+    <h1>
+      Svelte AG Grid - {title}
+      {#if agGridLink}<a href={agGridLink} rel="noreferrer"><AgGrid /></a>{/if}
+    </h1>
     <section bind:this={section}>
       {#if browser}
         <!-- Dynamic import breaks in SSR; render only in browser -->
-        <svelte:component this={component} />
+        <svelte:component this={component} bind:this={instance} />
       {/if}
     </section>
   </div>

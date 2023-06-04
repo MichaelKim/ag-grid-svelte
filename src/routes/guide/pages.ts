@@ -7,11 +7,14 @@ const formatSlug = (slug: string) => slug.split('-').map(toCamelCase).join(' ');
 const parseFile = ([path, importer]: [string, () => Promise<ComponentImport>]): FileData => {
   const [, section, filename] = path.split('/');
   const slug = filename.slice(3); // Strip prefix
+  // TODO: cannot represent non-camelcase in titles
+  const title = slug === 'row-ids' ? 'Row IDs' : formatSlug(slug);
+
   return {
     section, // [#]-[section]
     filename, // [#]-[slug].svelte
     slug,
-    title: formatSlug(slug),
+    title,
     importer
   };
 };
