@@ -431,15 +431,15 @@ add-stream@^1.0.0:
   resolved "https://registry.yarnpkg.com/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
   integrity sha512-qQLMr+8o0WC4FZGQTcJiKBVC59JylcPSrTtk6usvmIDFUOCKegapy1VHQwRbFMOFyb/inzUVqHs+eMYKDM1YeQ==
 
-ag-grid-community@^28.2.1:
-  version "28.2.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-28.2.1.tgz#50778cb2254ee79497222781909d8364007dd91e"
-  integrity sha512-DMZh/xD/FqYP17qJ1M92PolTYe+hrKuEaf+A4h13O6qn2x/xZQrTRGW5DgnQLR/uLMe1XXZQPKR3UKgAlKo69A==
+ag-grid-community@^30.0.0:
+  version "30.0.3"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-30.0.3.tgz#5b86a379a19a9be03619f9e9a3e7088e5c758a7c"
+  integrity sha512-agfRVHELQqhnMfRplmYEYdxMxw3c8l5Bu7lNaCfIVOasyRlSAvH4Na8qru0ORaOUN3ClulfvKIuLSWwgGSwJJQ==
 
-ag-grid-enterprise@^28.2.1:
-  version "28.2.1"
-  resolved "https://registry.yarnpkg.com/ag-grid-enterprise/-/ag-grid-enterprise-28.2.1.tgz#e5685c879b2a80ee9a4e111d5b8f0774fcc682b0"
-  integrity sha512-FIqIiaMMO9m8eqfu64rZ7dOK8vQFqD+Dp9CTpSfjMtyUp4IoRE36c+mUpUGLX/bIix9LltpaUmr185nFM1Alrw==
+ag-grid-enterprise@^30.0.0:
+  version "30.0.3"
+  resolved "https://registry.yarnpkg.com/ag-grid-enterprise/-/ag-grid-enterprise-30.0.3.tgz#9bac8abb43186aac16e2994bf8f3eada79ba8a02"
+  integrity sha512-XD9O4sxoTfrpKQRoAv9/+s3yuugLsIyJyNBWqiFgdo9Ucxt2n/K8n5bVVjr/CMGnqdOAmQ8LtK0OlJq7Iq1fsw==
 
 ajv@^6.10.0, ajv@^6.12.4:
   version "6.12.6"
