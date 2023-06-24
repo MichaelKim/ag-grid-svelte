@@ -78,7 +78,8 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS`}
 
 <p>
   Since styles in Svelte are scoped to that component, make sure to apply styles globally so inner
-  elements can pick up the theme.
+  elements can pick up the theme. Check out <a href="/guide/customization/">Layout & Styling</a>
+  for more info.
 </p>
 
 <Highlight
