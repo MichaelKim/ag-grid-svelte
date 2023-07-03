@@ -39,6 +39,7 @@
   export let copyHeadersToClipboard: Options['copyHeadersToClipboard'] = undefined;
   export let copyGroupHeadersToClipboard: Options['copyGroupHeadersToClipboard'] = undefined;
   export let clipboardDelimiter: Options['clipboardDelimiter'] = undefined;
+  export let suppressCutToClipboard: Options['suppressCutToClipboard'] = undefined;
   export let suppressCopyRowsToClipboard: Options['suppressCopyRowsToClipboard'] = undefined;
   export let suppressCopySingleCellRanges: Options['suppressCopySingleCellRanges'] = undefined;
   export let suppressLastEmptyLineOnPaste: Options['suppressLastEmptyLineOnPaste'] = undefined;
@@ -55,6 +56,7 @@
   export let defaultColDef: Options['defaultColDef'] = undefined;
   export let defaultColGroupDef: Options['defaultColGroupDef'] = undefined;
   export let columnTypes: Options['columnTypes'] = undefined;
+  export let dataTypeDefinitions: Options['dataTypeDefinitions'] = undefined;
   export let maintainColumnOrder: Options['maintainColumnOrder'] = undefined;
   export let suppressFieldDotNotation: Options['suppressFieldDotNotation'] = undefined;
   // Column Headers
@@ -79,8 +81,13 @@
   // Editing
   export let editType: Options['editType'] = undefined;
   export let singleClickEdit: Options['singleClickEdit'] = undefined;
+  export let enableGroupEdit: Options['enableGroupEdit'] = undefined;
   export let suppressClickEdit: Options['suppressClickEdit'] = undefined;
   export let stopEditingWhenCellsLoseFocus: Options['stopEditingWhenCellsLoseFocus'] = undefined;
+  export let enterNavigatesVertically: Options['enterNavigatesVertically'] = undefined;
+  export let enterNavigatesVerticallyAfterEdit: Options['enterNavigatesVerticallyAfterEdit'] =
+    undefined;
+  export let enableCellEditingOnBackspace: Options['enableCellEditingOnBackspace'] = undefined;
   export let enterMovesDown: Options['enterMovesDown'] = undefined;
   export let enterMovesDownAfterEdit: Options['enterMovesDownAfterEdit'] = undefined;
   export let undoRedoCellEditing: Options['undoRedoCellEditing'] = undefined;
@@ -95,17 +102,21 @@
   // Filtering
   export let quickFilterText: Options['quickFilterText'] = undefined;
   export let cacheQuickFilter: Options['cacheQuickFilter'] = undefined;
+  export let includeHiddenColumnsInQuickFilter: Options['includeHiddenColumnsInQuickFilter'] =
+    undefined;
   export let isExternalFilterPresent: Options['isExternalFilterPresent'] = undefined;
   export let doesExternalFilterPass: Options['doesExternalFilterPass'] = undefined;
   export let excludeChildrenWhenTreeDataFiltering: Options['excludeChildrenWhenTreeDataFiltering'] =
     undefined;
   // Integrated Charts
   export let enableCharts: Options['enableCharts'] = undefined;
+  export let suppressChartToolPanelsButton: Options['suppressChartToolPanelsButton'] = undefined;
   export let getChartToolbarItems: Options['getChartToolbarItems'] = undefined;
   export let createChartContainer: Options['createChartContainer'] = undefined;
   export let chartThemes: Options['chartThemes'] = undefined;
   export let customChartThemes: Options['customChartThemes'] = undefined;
   export let chartThemeOverrides: Options['chartThemeOverrides'] = undefined;
+  export let chartToolPanelsDef: Options['chartToolPanelsDef'] = undefined;
   // Keyboard Navigation
   export let navigateToNextHeader: Options['navigateToNextHeader'] = undefined;
   export let tabToNextHeader: Options['tabToNextHeader'] = undefined;
@@ -176,6 +187,7 @@
   export let aggFuncs: Options['aggFuncs'] = undefined;
   export let getGroupRowAgg: Options['getGroupRowAgg'] = undefined;
   export let suppressAggFuncInHeader: Options['suppressAggFuncInHeader'] = undefined;
+  export let alwaysAggregateAtRootLevel: Options['alwaysAggregateAtRootLevel'] = undefined;
   export let suppressAggAtRootLevel: Options['suppressAggAtRootLevel'] = undefined;
   export let aggregateOnlyChangedColumns: Options['aggregateOnlyChangedColumns'] = undefined;
   export let suppressAggFilteredOnly: Options['suppressAggFilteredOnly'] = undefined;
@@ -191,6 +203,7 @@
   export let domLayout: Options['domLayout'] = undefined;
   export let ensureDomOrder: Options['ensureDomOrder'] = undefined;
   export let getBusinessKeyForNode: Options['getBusinessKeyForNode'] = undefined;
+  export let gridId: Options['gridId'] = undefined;
   export let processRowPostCreate: Options['processRowPostCreate'] = undefined;
   export let enableRtl: Options['enableRtl'] = undefined;
   export let suppressColumnVirtualisation: Options['suppressColumnVirtualisation'] = undefined;
@@ -203,6 +216,7 @@
   export let rowDragMultiRow: Options['rowDragMultiRow'] = undefined;
   export let suppressRowDrag: Options['suppressRowDrag'] = undefined;
   export let suppressMoveWhenRowDragging: Options['suppressMoveWhenRowDragging'] = undefined;
+  export let rowDragText: Options['rowDragText'] = undefined;
   // Row Full Width
   export let fullWidthCellRenderer: Options['fullWidthCellRenderer'] = undefined;
   export let fullWidthCellRendererParams: Options['fullWidthCellRendererParams'] = undefined;
@@ -215,7 +229,6 @@
   export let groupIncludeFooter: Options['groupIncludeFooter'] = undefined;
   export let groupIncludeTotalFooter: Options['groupIncludeTotalFooter'] = undefined;
   export let groupSuppressBlankHeader: Options['groupSuppressBlankHeader'] = undefined;
-  export let groupRowsSticky: Options['groupRowsSticky'] = undefined;
   export let groupSelectsFiltered: Options['groupSelectsFiltered'] = undefined;
   export let showOpenedGroup: Options['showOpenedGroup'] = undefined;
   export let isGroupOpenByDefault: Options['isGroupOpenByDefault'] = undefined;
@@ -224,14 +237,18 @@
   export let groupRemoveLowestSingleChildren: Options['groupRemoveLowestSingleChildren'] =
     undefined;
   export let groupHideOpenParents: Options['groupHideOpenParents'] = undefined;
+  export let groupAllowUnbalanced: Options['groupAllowUnbalanced'] = undefined;
   export let rowGroupPanelShow: Options['rowGroupPanelShow'] = undefined;
+  export let rowGroupPanelSuppressSort: Options['rowGroupPanelSuppressSort'] = undefined;
   export let groupRowRenderer: Options['groupRowRenderer'] = undefined;
   export let groupRowRendererParams: Options['groupRowRendererParams'] = undefined;
   // export let suppressDragLeaveHidesColumns: Options['suppressDragLeaveHidesColumns'] = undefined;
+  export let suppressGroupRowsSticky: Options['suppressGroupRowsSticky'] = undefined;
   // export let suppressRowGroupHidesColumns: Options['suppressRowGroupHidesColumns'] = undefined;
   export let suppressMakeColumnVisibleAfterUnGroup: Options['suppressMakeColumnVisibleAfterUnGroup'] =
     undefined;
   export let treeData: Options['treeData'] = undefined;
+  export let treeDataDisplayType: Options['treeDataDisplayType'] = undefined;
   export let getDataPath: Options['getDataPath'] = undefined;
   // Row Pinning
   export let pinnedTopRowData: Options['pinnedTopRowData'] = undefined;
@@ -255,7 +272,6 @@
   export let infiniteInitialRowCount: Options['infiniteInitialRowCount'] = undefined;
   // RowModel: Server-Side
   export let serverSideDatasource: Options['serverSideDatasource'] = undefined;
-  export let serverSideInfiniteScroll: Options['serverSideInfiniteScroll'] = undefined;
   // export let cacheBlockSize: Options['cacheBlockSize'] = undefined;
   // export let maxBlocksInCache: Options['maxBlocksInCache'] = undefined;
   // export let maxConcurrentDatasourceRequests: Options['maxConcurrentDatasourceRequests'] =
@@ -263,10 +279,14 @@
   export let blockLoadDebounceMillis: Options['blockLoadDebounceMillis'] = undefined;
   export let purgeClosedRowNodes: Options['purgeClosedRowNodes'] = undefined;
   export let serverSideSortAllLevels: Options['serverSideSortAllLevels'] = undefined;
+  export let serverSideOnlyRefreshFilteredGroups: Options['serverSideOnlyRefreshFilteredGroups'] =
+    undefined;
   export let serverSideFilterAllLevels: Options['serverSideFilterAllLevels'] = undefined;
   export let serverSideSortOnServer: Options['serverSideSortOnServer'] = undefined;
   export let serverSideFilterOnServer: Options['serverSideFilterOnServer'] = undefined;
   export let serverSideInitialRowCount: Options['serverSideInitialRowCount'] = undefined;
+  export let suppressServerSideInfiniteScroll: Options['suppressServerSideInfiniteScroll'] =
+    undefined;
   export let getChildCount: Options['getChildCount'] = undefined;
   export let getServerSideGroupLevelParams: Options['getServerSideGroupLevelParams'] = undefined;
   export let isServerSideGroupOpenByDefault: Options['isServerSideGroupOpenByDefault'] = undefined;
@@ -407,6 +427,7 @@
   $: updateProp('copyHeadersToClipboard', copyHeadersToClipboard);
   $: updateProp('copyGroupHeadersToClipboard', copyGroupHeadersToClipboard);
   $: updateProp('clipboardDelimiter', clipboardDelimiter);
+  $: updateProp('suppressCutToClipboard', suppressCutToClipboard);
   $: updateProp('suppressCopyRowsToClipboard', suppressCopyRowsToClipboard);
   $: updateProp('suppressCopySingleCellRanges', suppressCopySingleCellRanges);
   $: updateProp('suppressLastEmptyLineOnPaste', suppressLastEmptyLineOnPaste);
@@ -422,6 +443,7 @@
   $: updateProp('defaultColDef', defaultColDef);
   $: updateProp('defaultColGroupDef', defaultColGroupDef);
   $: updateProp('columnTypes', columnTypes);
+  $: updateProp('dataTypeDefinitions', dataTypeDefinitions);
   $: updateProp('maintainColumnOrder', maintainColumnOrder);
   $: updateProp('suppressFieldDotNotation', suppressFieldDotNotation);
   $: updateProp('columnDefs', columnDefs); // Update columnDefs last
@@ -445,8 +467,12 @@
   // Editing
   $: updateProp('editType', editType);
   $: updateProp('singleClickEdit', singleClickEdit);
+  $: updateProp('enableGroupEdit', enableGroupEdit);
   $: updateProp('suppressClickEdit', suppressClickEdit);
   $: updateProp('stopEditingWhenCellsLoseFocus', stopEditingWhenCellsLoseFocus);
+  $: updateProp('enterNavigatesVertically', enterNavigatesVertically);
+  $: updateProp('enterNavigatesVerticallyAfterEdit', enterNavigatesVerticallyAfterEdit);
+  $: updateProp('enableCellEditingOnBackspace', enableCellEditingOnBackspace);
   $: updateProp('enterMovesDown', enterMovesDown);
   $: updateProp('enterMovesDownAfterEdit', enterMovesDownAfterEdit);
   $: updateProp('undoRedoCellEditing', undoRedoCellEditing);
@@ -461,16 +487,19 @@
   // Filtering
   $: updateProp('quickFilterText', quickFilterText);
   $: updateProp('cacheQuickFilter', cacheQuickFilter);
+  $: updateProp('includeHiddenColumnsInQuickFilter', includeHiddenColumnsInQuickFilter);
   $: updateProp('isExternalFilterPresent', isExternalFilterPresent);
   $: updateProp('doesExternalFilterPass', doesExternalFilterPass);
   $: updateProp('excludeChildrenWhenTreeDataFiltering', excludeChildrenWhenTreeDataFiltering);
   // Integrated Charts
   $: updateProp('enableCharts', enableCharts);
+  $: updateProp('suppressChartToolPanelsButton', suppressChartToolPanelsButton);
   $: updateProp('getChartToolbarItems', getChartToolbarItems);
   $: updateProp('createChartContainer', createChartContainer);
   $: updateProp('chartThemes', chartThemes);
   $: updateProp('customChartThemes', customChartThemes);
   $: updateProp('chartThemeOverrides', chartThemeOverrides);
+  $: updateProp('chartToolPanelsDef', chartToolPanelsDef);
   // Keyboard Navigation
   $: updateProp('navigateToNextHeader', navigateToNextHeader);
   $: updateProp('tabToNextHeader', tabToNextHeader);
@@ -541,6 +570,7 @@
   $: updateProp('aggFuncs', aggFuncs);
   $: updateProp('getGroupRowAgg', getGroupRowAgg);
   $: updateProp('suppressAggFuncInHeader', suppressAggFuncInHeader);
+  $: updateProp('alwaysAggregateAtRootLevel', alwaysAggregateAtRootLevel);
   $: updateProp('suppressAggAtRootLevel', suppressAggAtRootLevel);
   $: updateProp('aggregateOnlyChangedColumns', aggregateOnlyChangedColumns);
   $: updateProp('suppressAggFilteredOnly', suppressAggFilteredOnly);
@@ -558,6 +588,7 @@
   $: updateProp('domLayout', domLayout);
   $: updateProp('ensureDomOrder', ensureDomOrder);
   $: updateProp('getBusinessKeyForNode', getBusinessKeyForNode);
+  $: updateProp('gridId', gridId);
   $: updateProp('processRowPostCreate', processRowPostCreate);
   $: updateProp('enableRtl', enableRtl);
   $: updateProp('suppressColumnVirtualisation', suppressColumnVirtualisation);
@@ -569,6 +600,7 @@
   $: updateProp('rowDragMultiRow', rowDragMultiRow);
   $: updateProp('suppressRowDrag', suppressRowDrag);
   $: updateProp('suppressMoveWhenRowDragging', suppressMoveWhenRowDragging);
+  $: updateProp('rowDragText', rowDragText);
   // Row Full Width
   $: updateProp('fullWidthCellRenderer', fullWidthCellRenderer);
   $: updateProp('fullWidthCellRendererParams', fullWidthCellRendererParams);
@@ -581,7 +613,6 @@
   $: updateProp('groupIncludeFooter', groupIncludeFooter);
   $: updateProp('groupIncludeTotalFooter', groupIncludeTotalFooter);
   $: updateProp('groupSuppressBlankHeader', groupSuppressBlankHeader);
-  $: updateProp('groupRowsSticky', groupRowsSticky);
   $: updateProp('groupSelectsFiltered', groupSelectsFiltered);
   $: updateProp('showOpenedGroup', showOpenedGroup);
   $: updateProp('isGroupOpenByDefault', isGroupOpenByDefault);
@@ -589,13 +620,17 @@
   $: updateProp('groupRemoveSingleChildren', groupRemoveSingleChildren);
   $: updateProp('groupRemoveLowestSingleChildren', groupRemoveLowestSingleChildren);
   $: updateProp('groupHideOpenParents', groupHideOpenParents);
+  $: updateProp('groupAllowUnbalanced', groupAllowUnbalanced);
   $: updateProp('rowGroupPanelShow', rowGroupPanelShow);
+  $: updateProp('rowGroupPanelSuppressSort', rowGroupPanelSuppressSort);
   $: updateProp('groupRowRenderer', groupRowRenderer);
   $: updateProp('groupRowRendererParams', groupRowRendererParams);
   // $: updateProp('suppressDragLeaveHidesColumns', suppressDragLeaveHidesColumns);
+  $: updateProp('suppressGroupRowsSticky', suppressGroupRowsSticky);
   // $: updateProp('suppressRowGroupHidesColumns', suppressRowGroupHidesColumns);
   $: updateProp('suppressMakeColumnVisibleAfterUnGroup', suppressMakeColumnVisibleAfterUnGroup);
   $: updateProp('treeData', treeData);
+  $: updateProp('treeDataDisplayType', treeDataDisplayType);
   $: updateProp('getDataPath', getDataPath);
   // Row Pinning
   $: updateProp('pinnedTopRowData', pinnedTopRowData);
@@ -626,8 +661,6 @@
     updateProp('infiniteInitialRowCount', infiniteInitialRowCount);
   // RowModel: Server-Side
   $: if (rowModelType === 'serverSide') updateProp('serverSideDatasource', serverSideDatasource);
-  $: if (rowModelType === 'serverSide')
-    updateProp('serverSideInfiniteScroll', serverSideInfiniteScroll);
   // $: if (rowModelType === 'serverSide') updateProp('cacheBlockSize', cacheBlockSize);
   // $: if (rowModelType === 'serverSide') updateProp('maxBlocksInCache', maxBlocksInCache);
   // $: if (rowModelType === 'serverSide')
@@ -638,6 +671,8 @@
   $: if (rowModelType === 'serverSide')
     updateProp('serverSideSortAllLevels', serverSideSortAllLevels);
   $: if (rowModelType === 'serverSide')
+    updateProp('serverSideOnlyRefreshFilteredGroups', serverSideOnlyRefreshFilteredGroups);
+  $: if (rowModelType === 'serverSide')
     updateProp('serverSideFilterAllLevels', serverSideFilterAllLevels);
   $: if (rowModelType === 'serverSide')
     updateProp('serverSideSortOnServer', serverSideSortOnServer);
@@ -645,6 +680,8 @@
     updateProp('serverSideFilterOnServer', serverSideFilterOnServer);
   $: if (rowModelType === 'serverSide')
     updateProp('serverSideInitialRowCount', serverSideInitialRowCount);
+  $: if (rowModelType === 'serverSide')
+    updateProp('suppressServerSideInfiniteScroll', suppressServerSideInfiniteScroll);
   $: if (rowModelType === 'serverSide') updateProp('getChildCount', getChildCount);
   $: if (rowModelType === 'serverSide')
     updateProp('getServerSideGroupLevelParams', getServerSideGroupLevelParams);
