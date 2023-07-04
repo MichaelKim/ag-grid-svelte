@@ -152,10 +152,20 @@ ${'<'}style>
 
 <h2>Version Compatibility</h2>
 
-<p>AG Grid Svelte requires Svelte 3, and has been tested with AG Grid 28 and 29.</p>
+<p>AG Grid Svelte requires Svelte 3, and has been tested with AG Grid 28 to 30.</p>
 
 <p>
-  However, when using TypeScript and AG Grid 29, there may be some type errors due to slight
-  differences between v28 and v29. If you encounter a different issue, please raise an issue on the
-  Github repo.
+  However, when using TypeScript and AG Grid 28/29, there may be some type errors due to slight
+  differences in options between versions. If you encounter a different issue, please raise an issue
+  on the Github repo.
 </p>
+
+<p>If you are running AG Grid 30.0.0 to 30.0.2 and are encountering build errors such as:</p>
+
+<Highlight
+  code="Error when evaluating SSR module /node_modules/ag-grid-svelte/dist/AgGridSvelte.svelte: failed to import 'ag-grid-community'"
+/>
+
+<Highlight code="SyntaxError: Unexpected token 'export'" />
+
+make sure to upgrade to at least 30.0.3 to resolve those errors.
