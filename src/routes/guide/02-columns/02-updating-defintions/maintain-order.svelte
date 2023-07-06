@@ -3,8 +3,9 @@
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
+  import type { ColDef } from 'ag-grid-community';
 
-  function getColumnDefsA() {
+  function getColumnDefsA(): ColDef<IOlympicData>[] {
     return [
       { field: 'athlete', headerName: 'A Athlete' },
       { field: 'age', headerName: 'A Age' },
@@ -19,7 +20,7 @@
     ];
   }
 
-  function getColumnDefsB() {
+  function getColumnDefsB(): ColDef<IOlympicData>[] {
     return [
       { field: 'gold', headerName: 'B Gold' },
       { field: 'silver', headerName: 'B Silver' },

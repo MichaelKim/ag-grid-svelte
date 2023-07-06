@@ -1,11 +1,13 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
-  import type { GridApi } from 'ag-grid-community';
+  import type { ColDef, ColGroupDef, GridApi } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
 
-  function createNormalColDefs() {
+  type Data = IOlympicData & { region1?: unknown; region2?: unknown; distance?: unknown };
+
+  function createNormalColDefs(): (ColDef<Data> | ColGroupDef<Data>)[] {
     return [
       {
         headerName: 'Athlete Details',
@@ -27,7 +29,7 @@
     ];
   }
 
-  function createExtraColDefs() {
+  function createExtraColDefs(): (ColDef<Data> | ColGroupDef<Data>)[] {
     return [
       {
         headerName: 'Athlete Details',

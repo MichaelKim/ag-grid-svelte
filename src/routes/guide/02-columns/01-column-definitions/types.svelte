@@ -5,7 +5,7 @@
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
 
-  const columnDefs: (ColDef | ColGroupDef)[] = [
+  const columnDefs: (ColDef<IOlympicData> | ColGroupDef<IOlympicData>)[] = [
     { field: 'athlete' },
     { field: 'sport' },
     { field: 'age', type: 'numberColumn' },
@@ -40,7 +40,7 @@
     marryChildren: true
   };
 
-  const columnTypes = {
+  const columnTypes: Record<string, ColDef<IOlympicData>> = {
     numberColumn: { width: 130, filter: 'agNumberColumnFilter' },
     medalColumn: { width: 100, columnGroupShow: 'open', filter: false },
     nonEditableColumn: { editable: false },

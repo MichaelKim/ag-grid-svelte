@@ -1,5 +1,6 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
+  import type { ColDef } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
 
@@ -106,7 +107,7 @@
     }
   ];
 
-  const columnDefs = [
+  const columnDefs: ColDef[] = [
     { field: 'name' },
     { field: 'medals.gold', headerName: 'Gold' },
     { field: 'person.age' }

@@ -1,6 +1,7 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
   import type {
+    ColDef,
     ColumnApi,
     ColumnMovedEvent,
     ColumnPinnedEvent,
@@ -16,7 +17,7 @@
   import 'ag-grid-enterprise';
   import type { IOlympicData } from '../../types';
 
-  const columnDefs = [
+  const columnDefs: ColDef<IOlympicData>[] = [
     { field: 'athlete' },
     { field: 'age' },
     { field: 'country' },

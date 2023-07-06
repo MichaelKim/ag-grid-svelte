@@ -1,6 +1,6 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
-  import type { ValueGetterParams } from 'ag-grid-community';
+  import type { ColDef, ValueGetterParams } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
@@ -12,7 +12,7 @@
     }
   };
 
-  function getColDefsMedalsIncluded() {
+  function getColDefsMedalsIncluded(): ColDef<IOlympicData>[] {
     return [
       athleteColumn,
       {
@@ -39,7 +39,7 @@
     ];
   }
 
-  function getColDefsMedalsExcluded() {
+  function getColDefsMedalsExcluded(): ColDef<IOlympicData>[] {
     return [
       athleteColumn,
       {

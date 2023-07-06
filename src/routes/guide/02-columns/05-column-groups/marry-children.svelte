@@ -3,8 +3,9 @@
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
+  import type { ColDef, ColGroupDef } from 'ag-grid-community';
 
-  const columnDefs = [
+  const columnDefs: (ColDef<IOlympicData> | ColGroupDef<IOlympicData>)[] = [
     {
       headerName: 'Athlete Details',
       marryChildren: true,

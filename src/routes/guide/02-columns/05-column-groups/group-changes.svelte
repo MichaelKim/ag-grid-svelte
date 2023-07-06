@@ -5,7 +5,7 @@
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
 
-  const columnDefs = [
+  const columnDefs: ColDef<IOlympicData>[] = [
     { field: 'athlete', colId: 'athlete' },
     { field: 'age', colId: 'age' },
     { field: 'country', colId: 'country' },

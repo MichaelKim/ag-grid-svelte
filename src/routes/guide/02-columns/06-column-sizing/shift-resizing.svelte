@@ -3,8 +3,9 @@
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
+  import type { ColDef } from 'ag-grid-community';
 
-  const columnDefs = [
+  const columnDefs: ColDef<IOlympicData>[] = [
     { field: 'athlete', width: 150 },
     { field: 'age', width: 90 },
     { field: 'country', width: 150 },

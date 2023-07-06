@@ -1,6 +1,6 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
-  import type { ColGroupDef, ColumnApi, HeaderClassParams } from 'ag-grid-community';
+  import type { ColDef, ColGroupDef, ColumnApi, HeaderClassParams } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
@@ -30,7 +30,7 @@
     }
   }
 
-  const columnDefs = [
+  const columnDefs: (ColDef<IOlympicData> | ColGroupDef<IOlympicData>)[] = [
     {
       headerName: 'Group A',
       groupId: 'GroupA',

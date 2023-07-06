@@ -1,6 +1,6 @@
 <script lang="ts">
   import AgGridSvelte from '$lib/AgGridSvelte.svelte';
-  import type { ColSpanParams } from 'ag-grid-community';
+  import type { ColDef, ColGroupDef, ColSpanParams } from 'ag-grid-community';
   import 'ag-grid-community/styles/ag-grid.css';
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import { onDestroy } from 'svelte';
@@ -19,7 +19,7 @@
   }
 
   const rowData = [1, 2];
-  const columnDefs = [
+  const columnDefs: (ColDef | ColGroupDef)[] = [
     {
       headerName: 'A',
       field: 'author',
