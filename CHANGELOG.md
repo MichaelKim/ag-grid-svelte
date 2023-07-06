@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.0](https://github.com/MichaelKim/ag-grid-svelte/compare/v0.2.1...v0.3.0) (2023-07-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* add ag grid v30 to peer deps
+* move svelte to peer dep, update deps
+
+### Features
+
+* add ag grid v30 to peer deps ([9b8257b](https://github.com/MichaelKim/ag-grid-svelte/commit/9b8257b3ef3faf6c1b57ddac3e4236e2acc98a24))
+* update props with new grid options ([dd73e2a](https://github.com/MichaelKim/ag-grid-svelte/commit/dd73e2a72cbdd1c58471bcbe411e255bf8811183))
+
+
+### Bug Fixes
+
+* minor changes to wrapper typing ([e4f9122](https://github.com/MichaelKim/ag-grid-svelte/commit/e4f91221e2865e81369a584232e7720d29a48a53))
+
+
+* move svelte to peer dep, update deps ([dfb3d02](https://github.com/MichaelKim/ag-grid-svelte/commit/dfb3d025a0791f839a52b46afd2655d880850862))
+
 ## [0.2.1](https://github.com/MichaelKim/ag-grid-svelte/compare/v0.2.0...v0.2.1) (2023-05-21)
 
 
