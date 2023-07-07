@@ -15,7 +15,7 @@
     "commit-and-tag-version": "^11.2.1",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-svelte3": "^4.0.0",
+    "eslint-plugin-svelte": "^2.32.2",
     "highlight.js": "^11.8.0",
     "prettier": "^2.8.8",
     "prettier-plugin-svelte": "^2.10.1",

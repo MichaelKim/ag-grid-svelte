@@ -63,4 +63,6 @@
   $: highlighted = hljs.highlight(code, { language: lang }).value;
 </script>
 
+<!-- All highlighted code is internal, so there should be no concern for XSS -->
+<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 <pre><code class="hljs">{@html highlighted}</code></pre>
