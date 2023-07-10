@@ -11,12 +11,24 @@ module.exports = {
   ignorePatterns: ['*.cjs'],
   overrides: [
     {
-      files: ['*.svelte'],
+      files: ['./**/*.js'],
+      parserOptions: { project: null }
+    },
+    {
+      files: ['./**/*.ts'],
+      extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking']
+    },
+    {
+      files: ['./**/*.svelte'],
+      extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
       parser: 'svelte-eslint-parser',
       parserOptions: { parser: '@typescript-eslint/parser' }
     }
   ],
   parserOptions: {
+    project: true,
+    tsconfigRootDir: __dirname,
+    extraFileExtensions: ['.svelte'],
     sourceType: 'module',
     ecmaVersion: 2020
   },
