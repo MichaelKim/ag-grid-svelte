@@ -5,7 +5,7 @@ import {
   type IComponent,
   type WrappableInterface
 } from 'ag-grid-community';
-import type { ComponentType as SvelteComponentType, SvelteComponentTyped } from 'svelte';
+import type { ComponentType as SvelteComponentType, SvelteComponent } from 'svelte';
 import { SvelteComponent } from 'svelte/internal';
 
 // Called when a Svelte component is provided to override a default grid component
@@ -20,7 +20,7 @@ export class SvelteFrameworkComponentWrapper
 
 class NewSvelteComponent<P> implements IComponent<P>, WrappableInterface {
   private eParentElement!: HTMLElement;
-  private componentInstance!: SvelteComponentTyped<{ params: P }>;
+  private componentInstance!: SvelteComponent<{ params: P }>;
   private methods: { [name: string]: (...args: P[]) => void } = {
     // Provide a default refresh method
     refresh: (params: P) => {
@@ -29,7 +29,7 @@ class NewSvelteComponent<P> implements IComponent<P>, WrappableInterface {
     }
   };
 
-  constructor(private SvelteComponent: SvelteComponentType<SvelteComponentTyped<{ params: P }>>) {}
+  constructor(private SvelteComponent: SvelteComponentType<SvelteComponent<{ params: P }>>) {}
 
   init(params: P): void {
     // Guaranteed to be called

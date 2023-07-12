@@ -26,9 +26,9 @@
     class="backdrop"
     on:click={() => (open = false)}
     aria-hidden="true"
-    transition:fade={{ duration: 150 }}
+    transition:fade|global={{ duration: 150 }}
   />
-  <div class="nav-bar" transition:fly={{ x: -200, duration: 200 }}>
+  <div class="nav-bar" transition:fly|global={{ x: -200, duration: 200 }}>
     <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" bind:this={start} />
     <Logo />
