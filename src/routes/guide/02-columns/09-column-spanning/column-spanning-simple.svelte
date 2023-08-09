@@ -5,13 +5,13 @@
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
 
-  const columnDefs: ColDef[] = [
+  const columnDefs: ColDef<IOlympicData>[] = [
     { field: 'athlete', pinned: 'left' },
     { field: 'age', pinned: 'left' },
     {
       field: 'country',
       colSpan: (params) => {
-        const country = params.data.country;
+        const country = params.data?.country;
         if (country === 'Russia') {
           // have all Russia age columns width 2
           return 2;
@@ -37,9 +37,9 @@
 
   let rowData: IOlympicData[] = [];
   function onGridReady() {
-    fetch('/olympic-winners.json')
+    void fetch('/olympic-winners.json')
       .then((resp) => resp.json())
-      .then((data) => (rowData = data));
+      .then((data: IOlympicData[]) => (rowData = data));
   }
 </script>
 

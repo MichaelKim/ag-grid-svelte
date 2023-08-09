@@ -14,7 +14,7 @@
     for (const cell of grid.querySelectorAll<HTMLElement>('.ag-cell')) {
       const width = cell.offsetWidth;
       const isFullWidthRow = cell.parentElement?.childNodes.length === 1;
-      cell.textContent = (isFullWidthRow ? 'Total width: ' : '') + width + 'px';
+      cell.textContent = `${isFullWidthRow ? 'Total width: ' : ''}${width}px`;
     }
   }
 

@@ -5,7 +5,7 @@
   export let headings: string[];
 
   function onClick(heading: string) {
-    goto('#' + heading, { noScroll: true }).then(scrollToHash);
+    void goto('#' + heading, { noScroll: true }).then(scrollToHash);
   }
 </script>
 

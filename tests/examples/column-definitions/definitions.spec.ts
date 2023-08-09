@@ -10,7 +10,7 @@ test.describe('Column Definitions', () => {
   });
 
   test('Page loads', async ({ page }) => {
-    expect(page).toHaveTitle('Svelte AG Grid - Column Definitions');
+    await expect(page).toHaveTitle('Svelte AG Grid - Column Definitions');
     expect(await page.textContent('h1')).toBe('Svelte AG Grid - Column Definitions');
   });
 

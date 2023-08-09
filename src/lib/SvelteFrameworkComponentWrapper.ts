@@ -55,7 +55,7 @@ class NewSvelteComponent<P> implements IComponent<P>, WrappableInterface {
   }
 
   callMethod(name: string, args: IArguments): void {
-    this.methods[name]?.apply(this.componentInstance, [...args]);
+    this.methods[name]?.apply(this.componentInstance, [...args] as P[]);
   }
 
   addMethod(name: string, callback: (...args: unknown[]) => unknown): void {

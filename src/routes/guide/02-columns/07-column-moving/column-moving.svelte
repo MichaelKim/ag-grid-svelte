@@ -24,9 +24,9 @@
 
   let rowData: IOlympicData[] = [];
   function onGridReady() {
-    fetch('/olympic-winners.json')
+    void fetch('/olympic-winners.json')
       .then((resp) => resp.json())
-      .then((data) => (rowData = data));
+      .then((data: IOlympicData[]) => (rowData = data));
   }
 
   let columnApi: ColumnApi;
@@ -49,7 +49,7 @@
 
   const onPrintColumns = () => {
     const cols = columnApi.getAllGridColumns();
-    const colToNameFunc = (col: Column, index: number) => index + ' = ' + col.getId();
+    const colToNameFunc = (col: Column, index: number) => `${index} = ${col.getId()}`;
     const colNames = cols.map(colToNameFunc).join(', ');
     console.log('columns are: ' + colNames);
   };

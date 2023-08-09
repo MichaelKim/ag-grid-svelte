@@ -17,8 +17,8 @@
 
   function addRow() {
     rowData = rowData.concat({
-      make: 'Make-' + rowData.length,
-      model: 'Model-' + rowData.length,
+      make: `Make- ${rowData.length}`,
+      model: `Model- ${rowData.length}`,
       price: Math.floor(Math.random() * 100000)
     });
   }

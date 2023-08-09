@@ -22,9 +22,9 @@
 
   let rowData: IOlympicData[] = [];
   function onGridReady(params: GridReadyEvent) {
-    fetch('/olympic-winners.json')
+    void fetch('/olympic-winners.json')
       .then((resp) => resp.json())
-      .then((data) => (rowData = data));
+      .then((data: IOlympicData[]) => (rowData = data));
 
     const defaultSortModel: ColumnState[] = [
       { colId: 'country', sort: 'asc', sortIndex: 0 },

@@ -30,7 +30,7 @@
     const cols = params.columnApi.getColumns();
     cols?.forEach((col) => {
       const colDef = col.getColDef();
-      console.log(colDef.headerName + ', Column ID = ' + col.getId(), JSON.stringify(colDef));
+      console.log(`${colDef.headerName}, Column ID = ${col.getId()}`, JSON.stringify(colDef));
     });
   };
 </script>

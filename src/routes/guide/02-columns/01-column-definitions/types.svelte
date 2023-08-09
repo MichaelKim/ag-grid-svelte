@@ -67,9 +67,9 @@
 
   let rowData: IOlympicData[] = [];
   function onGridReady() {
-    fetch('/olympic-winners.json')
+    void fetch('/olympic-winners.json')
       .then((resp) => resp.json())
-      .then((data) => (rowData = data));
+      .then((data: IOlympicData[]) => (rowData = data));
   }
 </script>
 

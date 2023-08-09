@@ -5,7 +5,7 @@
   import 'ag-grid-community/styles/ag-theme-alpine.css';
   import type { IOlympicData } from '../../types';
 
-  function getColumnDefs(): ColDef[] {
+  function getColumnDefs(): ColDef<IOlympicData>[] {
     return [
       { field: 'athlete' },
       { field: 'age' },
@@ -29,16 +29,16 @@
 
   let rowData: IOlympicData[] = [];
   function onGridReady() {
-    fetch('/olympic-winners.json')
+    void fetch('/olympic-winners.json')
       .then((resp) => resp.json())
-      .then((data) => (rowData = data));
+      .then((data: IOlympicData[]) => (rowData = data));
   }
 
   let columnDefs = getColumnDefs();
   function setHeaderNames() {
     const newDefs = getColumnDefs();
     newDefs.forEach((colDef, index) => {
-      colDef.headerName = 'C' + index;
+      colDef.headerName = `C ${index}`;
     });
     columnDefs = newDefs;
   }
