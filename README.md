@@ -2,6 +2,8 @@
 
 [![NPM Version](https://img.shields.io/npm/v/ag-grid-svelte?color=40b3ff)](https://npmjs.org/package/ag-grid-svelte) [![license](https://img.shields.io/github/license/michaelkim/ag-grid-svelte)](LICENSE)
 
+NB: This is a temporary fork of ag-grid-svelte until that package updates to Svelte 4.
+
 An unofficial Svelte wrapper for [AG Grid](http://www.ag-grid.com/). Tested with v28 to v30.
 
 ## Usage
