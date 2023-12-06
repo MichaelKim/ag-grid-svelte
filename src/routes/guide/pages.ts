@@ -29,11 +29,14 @@ const files = import.meta.glob<ComponentImport>('./*/*/index.svelte');
 export const filedata = Object.entries(files).map(parseFile);
 
 // Generate sidebar nav
-const sections = filedata.reduce((acc, data) => {
-  acc[data.section] ??= [];
-  acc[data.section].push(data);
-  return acc;
-}, {} as Record<string, FileData[]>);
+const sections = filedata.reduce(
+  (acc, data) => {
+    acc[data.section] ??= [];
+    acc[data.section].push(data);
+    return acc;
+  },
+  {} as Record<string, FileData[]>
+);
 
 // Sort by prefix
 const sectionTitles = Object.keys(sections).sort();
